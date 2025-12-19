@@ -89,8 +89,8 @@ header a:hover {
     }
 
     .nav-links.show {
-        max-height: 300px; /* or auto with JS if you want */
-        transform: translateY(0);
+        max-height: 600px; /* or auto with JS if you want */
+        transform: translateY(10);
         border-bottom: 5px solid
             var(--themeColour);
     }
