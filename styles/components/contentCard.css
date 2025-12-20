@@ -75,8 +75,9 @@
 
 .contentBox img {
     width: 80px;
-    grid-row: 1 / 3; /* Spans title and description */
     height: auto;
+    aspect-ratio: 1 / 1;
+    grid-row: 1 / 3; /* Spans title and description */
     object-fit: contain;
 }
 
