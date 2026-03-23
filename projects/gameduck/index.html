@@ -1,10 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
+        />
+        <meta
+            name="description"
+            content="GameDuck is a Java desktop Game Boy and Game Boy Color emulator by Mackenzie Blackaby, featuring save-state management, ROM library tools, theme customisation, and a portable Windows release."
+        />
+        <meta
+            property="og:title"
+            content="MB | GameDuck"
+        />
+        <meta
+            property="og:description"
+            content="A detailed overview of GameDuck: a Java desktop Game Boy and Game Boy Color emulation suite with a Swing frontend, ROM library tools, save management, and customisation features."
+        />
+        <meta
+            property="og:image"
+            content="/Resources/Images/gameducklogo.png"
+        />
+        <meta
+            property="og:url"
+            content="https://blackaby.uk/projects/gameduck"
+        />
+        <meta
+            name="twitter:card"
+            content="summary_large_image"
+        />
+        <meta
+            name="twitter:title"
+            content="MB | GameDuck"
+        />
+        <meta
+            name="twitter:description"
+            content="A Java-based Game Boy and Game Boy Color emulation suite built by Mackenzie Blackaby."
+        />
+        <meta
+            name="twitter:image"
+            content="/Resources/Images/gameducklogo.png"
         />
         <title>MB | GameDuck</title>
         <link
@@ -17,7 +53,7 @@
             type="image/x-icon"
         />
         <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
             rel="stylesheet"
         />
     </head>
@@ -26,7 +62,7 @@
         src="https://www.googletagmanager.com/gtag/js?id=G-62CFYMK26D"
     ></script>
     <script src="/scripts/analytics.js"></script>
-    <body>
+    <body class="projectDetailPage">
         <div class="mainPageContent">
             <header id="header">
                 <h1 class="logo">
@@ -60,170 +96,516 @@
                     >
                 </div>
             </header>
-            <div
+
+            <section
+                class="contentCard fadeIn projectHero instant"
+            >
+                <div>
+                    <p class="projectSectionEyebrow">
+                        Java desktop emulator
+                    </p>
+                    <h1 class="projectHeroTitle">
+                        GameDuck
+                    </h1>
+                    <p class="projectHeroLead">
+                        GameDuck is a desktop
+                        Game Boy and Game Boy
+                        Color emulation suite
+                        written in Java with a
+                        Swing frontend. It began
+                        as my final-year project
+                        at Lancaster University
+                        and has grown into a
+                        feature-rich emulator
+                        focused on portability,
+                        library management,
+                        customisation, and a
+                        straightforward desktop
+                        experience.
+                    </p>
+                    <div class="projectHeroActions">
+                        <a
+                            class="projectPillButton projectPillButtonPrimary"
+                            href="https://github.com/MackenzieBlackaby/gameduck/releases"
+                        >
+                            Download Windows build
+                        </a>
+                        <a
+                            class="projectPillButton projectPillButtonSecondary"
+                            href="https://github.com/MackenzieBlackaby/gameduck"
+                        >
+                            View source code
+                        </a>
+                    </div>
+                    <div class="projectHeroMeta">
+                        <span
+                            class="projectHeroMetaItem"
+                            >Latest public release:
+                            v0.1.0-alpha</span
+                        >
+                        <span
+                            class="projectHeroMetaItem"
+                            >Targets Java 22 and
+                            Maven</span
+                        >
+                        <span
+                            class="projectHeroMetaItem"
+                            >Supports Game Boy and
+                            Game Boy Color</span
+                        >
+                    </div>
+                </div>
+                <div class="projectHeroVisual">
+                    <div
+                        class="projectDetailCard projectDetailCardGlass projectHeroMediaCard"
+                    >
+                        <img
+                            src="/Resources/Images/gameducklogo.png"
+                            alt="GameDuck logo"
+                        />
+                    </div>
+                    <div
+                        class="projectDetailCard projectDetailCardGlass projectHeroInfoCard"
+                    >
+                        <p class="projectSectionEyebrow">
+                            Release focus
+                        </p>
+                        <h2>Portable and practical</h2>
+                        <p>
+                            The current packaged
+                            Windows release ships
+                            as a portable x64 build
+                            with its own bundled
+                            Java runtime, so it can
+                            be extracted and run
+                            without a separate Java
+                            installation.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section
+                class="threeCol fadeIn projectThreeCol"
+            >
+                <h1>Project Snapshot</h1>
+                <div class="threeColPanel">
+                    <div class="column">
+                        <span class="projectBadge"
+                            >Stack</span
+                        >
+                        <h1>Java 22 + Swing</h1>
+                        <p>
+                            GameDuck is built as a
+                            Java desktop
+                            application with a
+                            Swing-based frontend,
+                            which keeps it portable
+                            anywhere a JVM can run.
+                        </p>
+                    </div>
+                    <div class="column">
+                        <span class="projectBadge"
+                            >Scope</span
+                        >
+                        <h1>GB / GBC focused</h1>
+                        <p>
+                            The suite targets
+                            original Game Boy and
+                            Game Boy Color
+                            software, including
+                            support for compatible
+                            patched ROMs and
+                            optional boot ROM
+                            workflows.
+                        </p>
+                    </div>
+                    <div class="column">
+                        <span class="projectBadge"
+                            >Current release</span
+                        >
+                        <h1>v0.1.0-alpha</h1>
+                        <p>
+                            The first public
+                            packaged release
+                            already includes the
+                            emulator core, desktop
+                            UI, save systems,
+                            library tooling, and
+                            bundled runtime for
+                            Windows x64.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section
                 class="contentCard fadeIn"
             >
                 <h2>
-                    GameDuck: Modern
-                    GameBoy Emulation
+                    What GameDuck Includes
                 </h2>
-                <h3>
-                    Source Code & Final
-                    Release:
-                </h3>
-                <p>
-                    Expected release on
-                    14/07/2025.
-                </p>
-                <h3>Whitepaper:</h3>
-                <p>
-                    Expected release:
-                    14/07/2025.
-                </p>
-            </div>
-            <div
+                <div class="projectCardGrid">
+                    <article class="projectDetailCard">
+                        <span class="projectBadge"
+                            >Emulation</span
+                        >
+                        <h3>
+                            Core support for classic
+                            handheld software
+                        </h3>
+                        <p>
+                            GameDuck runs
+                            <code>.gb</code>,
+                            <code>.gbc</code>, and
+                            compatible patched ROMs
+                            through a dedicated
+                            desktop frontend rather
+                            than a barebones test
+                            harness.
+                        </p>
+                    </article>
+                    <article class="projectDetailCard">
+                        <span class="projectBadge"
+                            >ROM workflows</span
+                        >
+                        <h3>
+                            IPS patch loading
+                            without editing the
+                            source ROM
+                        </h3>
+                        <p>
+                            ROM hacks can be
+                            launched by layering an
+                            IPS patch over a base
+                            ROM at runtime, so the
+                            original file stays
+                            untouched and save data
+                            can remain separate.
+                        </p>
+                    </article>
+                    <article class="projectDetailCard">
+                        <span class="projectBadge"
+                            >Library</span
+                        >
+                        <h3>
+                            Managed game library
+                            with metadata and art
+                        </h3>
+                        <p>
+                            The app copies played
+                            ROMs into a local
+                            library, supports
+                            favourites, and caches
+                            box art, title screens,
+                            and screenshots from
+                            libretro sources.
+                        </p>
+                    </article>
+                    <article class="projectDetailCard">
+                        <span class="projectBadge"
+                            >Persistence</span
+                        >
+                        <h3>
+                            Save data, quick saves,
+                            and numbered state slots
+                        </h3>
+                        <p>
+                            Compatible cartridges
+                            can use battery-backed
+                            save data, while managed
+                            quick saves and
+                            save-state slots make it
+                            easier to suspend and
+                            resume play.
+                        </p>
+                    </article>
+                    <article class="projectDetailCard">
+                        <span class="projectBadge"
+                            >Customisation</span
+                        >
+                        <h3>
+                            Themes, palettes,
+                            controls, and shortcuts
+                        </h3>
+                        <p>
+                            Users can switch
+                            palettes, create custom
+                            colour presets, adjust
+                            themes, and configure
+                            both control mappings
+                            and application
+                            shortcuts.
+                        </p>
+                    </article>
+                    <article class="projectDetailCard">
+                        <span class="projectBadge"
+                            >Debugging</span
+                        >
+                        <h3>
+                            Boot ROM support and
+                            live serial output
+                        </h3>
+                        <p>
+                            If you have your own
+                            legal boot ROM dumps,
+                            GameDuck can use them
+                            and also exposes serial
+                            output plus on-disk
+                            debug logging for more
+                            technical workflows.
+                        </p>
+                    </article>
+                </div>
+            </section>
+            <section
                 class="contentCard fadeIn"
             >
                 <div
-                    class="contentImageBox"
+                    class="contentImageBox projectImageCallout"
                 >
                     <img
                         src="/Resources/Images/gameducklogo.png"
-                        alt="GameDuck Logo"
+                        alt="GameDuck emblem"
                     />
                     <div>
-                        <h1>
-                            The
-                            Definitive
-                            Emulator
-                        </h1>
-                        <p>
-                            GameDuck is
-                            a fast,
-                            accurate,
-                            and modern
-                            Game Boy
-                            emulator
-                            built from
-                            the ground
-                            up in Java.
-                            Designed for
-                            clarity and
-                            performance,
-                            it
-                            faithfully
-                            recreates
-                            classic
-                            handheld
-                            gameplay
-                            while
-                            offering a
-                            sleek user
-                            experience.
-                            Whether
-                            you're a
-                            developer,
-                            retro
-                            enthusiast,
-                            or just
-                            curious
-                            about
-                            emulation,
-                            GameDuck
-                            brings the
-                            nostalgia to
-                            life with a
-                            fresh and
-                            technical
-                            edge.
-                            <br />
-                            <br />
-                            Please note
-                            that
-                            GameDuck is
-                            not
-                            affiliated
-                            with
-                            Nintendo or
-                            any other
-                            company, and
-                            was designed
-                            as a
-                            dissertation
-                            project at
-                            Lancaster
-                            University.
-                            It contains
-                            no
-                            copyrighted
-                            material and
-                            is therefore
-                            legal to
-                            distribute.
+                        <p class="projectSectionEyebrow">
+                            Project context
                         </p>
+                        <h2>
+                            From dissertation
+                            project to emulator
+                            suite
+                        </h2>
+                        <p>
+                            GameDuck started life as
+                            my final-year project at
+                            Lancaster University,
+                            but the repository now
+                            goes well beyond a basic
+                            academic prototype. It
+                            combines the emulator
+                            core, the desktop UI,
+                            persistence helpers,
+                            metadata handling, save
+                            management, boot ROM
+                            tooling, and UI
+                            customisation in one
+                            codebase.
+                        </p>
+                        <div class="projectMiniGrid">
+                            <article class="projectDetailCard">
+                                <h3>
+                                    Desktop-first
+                                    design
+                                </h3>
+                                <p>
+                                    The project is
+                                    intentionally
+                                    structured around
+                                    an actual desktop
+                                    user experience,
+                                    not just emulation
+                                    correctness in
+                                    isolation.
+                                </p>
+                            </article>
+                            <article class="projectDetailCard">
+                                <h3>
+                                    Portable release
+                                    model
+                                </h3>
+                                <p>
+                                    The packaged
+                                    Windows build is
+                                    designed to be
+                                    easy to extract
+                                    and run with no
+                                    separate Java
+                                    dependency for the
+                                    end user.
+                                </p>
+                            </article>
+                            <article class="projectDetailCard">
+                                <h3>
+                                    Personal branding
+                                </h3>
+                                <p>
+                                    The duck name and
+                                    logo are a nod to
+                                    Lancaster
+                                    University and the
+                                    campus ducks that
+                                    inspired the
+                                    project identity.
+                                </p>
+                            </article>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div
-                class="threeCol fadeIn"
+            </section>
+
+            <section
+                class="contentCard fadeIn"
             >
-                <h1>
-                    What's So Special?
-                </h1>
-                <div
-                    class="threeColPanel"
-                >
-                    <div class="column">
-                        <h1>Modern</h1>
+                <h2>
+                    Codebase Structure
+                </h2>
+                <div class="projectCardGrid">
+                    <article class="projectDetailCard">
+                        <h3>
+                            Backend / Emulation
+                        </h3>
                         <p>
-                            GameDuck is
-                            written in
-                            Java with a
-                            modern take
-                            on
-                            emulation,
-                            allowing for
-                            no-setup
-                            portability
+                            The emulator core houses
+                            the CPU, instruction
+                            decoding, memory map,
+                            graphics pipeline,
+                            peripherals, timers,
+                            ROM loading, and mapper
+                            implementations.
+                        </p>
+                    </article>
+                    <article class="projectDetailCard">
+                        <h3>
+                            Backend / Helpers
+                        </h3>
+                        <p>
+                            This layer handles save
+                            data, quick states,
+                            library persistence,
+                            metadata caching,
+                            artwork fetching, and
+                            the file-backed tools
+                            that sit around the core
+                            emulator.
+                        </p>
+                    </article>
+                    <article class="projectDetailCard">
+                        <h3>Frontend</h3>
+                        <p>
+                            The Swing frontend owns
+                            the main window, display
+                            panel, menus, input
+                            routing, library browser,
+                            theme handling, and the
+                            overall desktop user
+                            flow.
+                        </p>
+                    </article>
+                    <article class="projectDetailCard">
+                        <h3>Runtime data</h3>
+                        <p>
+                            The app manages local
+                            folders for the ROM
+                            library, cartridge saves,
+                            quickstates, cached
+                            artwork, and generated
+                            docs, while settings and
+                            boot ROM storage live in
+                            the user profile.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="threeCol fadeIn projectThreeCol">
+                <h1>Roadmap Toward v1.0</h1>
+                <div class="threeColPanel">
+                    <div class="column">
+                        <span class="projectBadge"
+                            >Compatibility</span
+                        >
+                        <h1>
+                            Hardware coverage
+                        </h1>
+                        <p>
+                            Planned work includes
+                            Super Game Boy support
+                            and fixes for effects
+                            that depended on the
+                            original hardware's
+                            screen ghosting.
                         </p>
                     </div>
                     <div class="column">
+                        <span class="projectBadge"
+                            >Usability</span
+                        >
                         <h1>
-                            Accurate
+                            Cleaner updates and UI
                         </h1>
                         <p>
-                            GameDuck is
-                            comparable
-                            in accuracy
-                            to the
-                            Titans of
-                            emulation,
-                            such as
-                            Gambatte,
-                            GBSP and VBA
+                            The current roadmap also
+                            mentions ROM deletion
+                            from the library,
+                            library/config
+                            migration, and broader UI
+                            polish.
                         </p>
                     </div>
                     <div class="column">
+                        <span class="projectBadge"
+                            >Advanced features</span
+                        >
                         <h1>
-                            Efficient
+                            Link cable direction
                         </h1>
                         <p>
-                            GameDuck is
-                            designed to
-                            make use of
-                            Java's
-                            corner-cutting
-                            techniques,
-                            allowing for
-                            a smooth
-                            experience
-                            on even the
-                            most basic
-                            of hardware.
+                            Longer-term goals include
+                            two simultaneous
+                            emulations with link
+                            cable support, dual
+                            controller input,
+                            shaders, and overlays.
                         </p>
                     </div>
                 </div>
-            </div>
+                <p class="projectSectionNote">
+                    These roadmap sections are
+                    grouped from the current public
+                    repository plan so the page is
+                    easier to scan.
+                </p>
+            </section>
+
+            <section
+                class="contentCard fadeIn"
+            >
+                <h2>Important Notes</h2>
+                <div class="projectMiniGrid">
+                    <article class="projectDetailCard">
+                        <p>
+                            GameDuck does not ship
+                            with commercial ROMs or
+                            Nintendo boot ROM files.
+                        </p>
+                    </article>
+                    <article class="projectDetailCard">
+                        <p>
+                            Boot ROM support is
+                            available, but users need
+                            to supply their own legal
+                            dumps separately.
+                        </p>
+                    </article>
+                    <article class="projectDetailCard">
+                        <p>
+                            The project is a personal
+                            emulator suite and is not
+                            affiliated with Nintendo.
+                        </p>
+                    </article>
+                </div>
+                <p class="projectLegalNote">
+                    The information on this page has
+                    been aligned with the public
+                    GameDuck repository and release
+                    notes so it reflects the current
+                    feature set rather than older
+                    placeholder copy.
+                </p>
+            </section>
         </div>
         <footer>
             <p>
