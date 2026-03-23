@@ -54,6 +54,15 @@
             type="image/x-icon"
         />
         <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        />
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        />
+        <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
             rel="stylesheet"
         />
@@ -116,8 +125,14 @@
                 class="pfpCard fadeIn instant"
             >
                 <img
-                    src="/Resources/Images/pfp.jpg"
+                    src="/Resources/Images/optimized/pfp-420.webp"
+                    srcset="/Resources/Images/optimized/pfp-420.webp 420w, /Resources/Images/optimized/pfp-840.webp 840w"
+                    sizes="(max-width: 767px) min(100vw - 40px, 300px), (max-width: 1400px) 28vw, 420px"
                     alt="Profile Picture"
+                    width="420"
+                    height="420"
+                    decoding="async"
+                    fetchpriority="high"
                 />
                 <div class="pfpText">
                     <h1>
@@ -260,8 +275,12 @@
                     class="contentBox"
                 >
                     <img
-                        src="/Resources/Images/UoMLogo.png"
+                        src="/Resources/Images/optimized/uomlogo-160.webp"
                         alt="MU Logo"
+                        width="160"
+                        height="160"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div>
                         <h3>
@@ -295,6 +314,10 @@
                     <img
                         src="/Resources/Images/lu-shield.svg"
                         alt="LU Logo"
+                        width="80"
+                        height="80"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div>
                         <h3>
@@ -323,8 +346,12 @@
                 </a>
                 <div class="contentBox">
                     <img
-                        src="/Resources/Images/kings.png"
+                        src="/Resources/Images/optimized/kings-160.webp"
                         alt="KSM Logo"
+                        width="124"
+                        height="160"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div>
                         <h3>
@@ -362,6 +389,10 @@
                     <img
                         src="/Resources/Images/mckinsey.jpg"
                         alt="MU Logo"
+                        width="225"
+                        height="225"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div>
                         <h3>
@@ -388,6 +419,10 @@
                     <img
                         src="/Resources/Images/Linkedin.webp"
                         alt="LU Logo"
+                        width="2048"
+                        height="2048"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div>
                         <h3>
@@ -413,6 +448,10 @@
                     <img
                         src="/Resources/Images/Github.png"
                         alt="LU Logo"
+                        width="512"
+                        height="512"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div>
                         <h3>Github</h3>

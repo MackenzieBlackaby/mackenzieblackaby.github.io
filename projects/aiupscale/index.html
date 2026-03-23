@@ -54,6 +54,15 @@
             type="image/x-icon"
         />
         <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        />
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        />
+        <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
             rel="stylesheet"
         />
@@ -180,8 +189,12 @@
                         class="projectDetailCard projectDetailCardGlass projectHeroMediaCard"
                     >
                         <img
-                            src="/Resources/Images/aiupscale.png"
+                            src="/Resources/Images/optimized/aiupscale-512.webp"
                             alt="Upscale logo"
+                            width="512"
+                            height="512"
+                            decoding="async"
+                            fetchpriority="high"
                         />
                     </div>
                     <div
@@ -428,8 +441,12 @@
                     class="contentImageBox projectImageCallout"
                 >
                     <img
-                        src="/Resources/Images/aiupscale.png"
+                        src="/Resources/Images/optimized/aiupscale-512.webp"
                         alt="Upscale icon"
+                        width="512"
+                        height="512"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div>
                         <p class="projectSectionEyebrow">
