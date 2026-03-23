@@ -1,24 +1,26 @@
 .fadeIn {
     opacity: 0;
-    transform: translateY(15vh);
+    transform: translateY(24px);
     will-change: transform, opacity;
+    transition:
+        opacity 0.22s ease-out,
+        transform 0.22s ease-out;
 }
 
 .fadeIn.animate {
-    animation-name: fadeInMove;
-    animation-duration: 1.2s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-    animation-delay: 0s;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .fadeIn.delay.animate {
-    animation-delay: 0.5s;
+    transition-delay: 0.08s;
 }
 
-@keyframes fadeInMove {
-    to {
+@media (prefers-reduced-motion: reduce) {
+    .fadeIn,
+    .fadeIn.delay.animate {
+        transition: none;
+        transform: none;
         opacity: 1;
-        transform: translateY(0);
     }
 }
