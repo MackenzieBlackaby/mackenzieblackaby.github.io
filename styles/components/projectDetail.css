@@ -117,6 +117,53 @@
     color: var(--project-hero-muted);
 }
 
+.projectMetaGrid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(150px, 1fr)
+    );
+    gap: 14px;
+    margin-bottom: 24px;
+    max-width: 760px;
+}
+
+.projectMetaCard {
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(
+        255,
+        255,
+        255,
+        0.08
+    );
+    border: 1px solid
+        rgba(255, 255, 255, 0.14);
+}
+
+.projectMetaLabel {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(
+        255,
+        255,
+        255,
+        0.72
+    );
+}
+
+.projectMetaValue {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #ffffff;
+}
+
 .projectHeroActions {
     display: flex;
     flex-wrap: wrap;
@@ -230,13 +277,28 @@
     display: grid;
     place-items: center;
     padding: 28px;
-    min-height: 250px;
+    min-height: 270px;
     backdrop-filter: blur(10px);
 }
 
 .projectHeroMediaCard img {
-    width: min(100%, 230px);
+    width: min(100%, 250px);
+    max-height: 220px;
     height: auto;
+    object-fit: contain;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.82);
+    padding: 18px;
+    box-shadow: 0 18px 34px
+        rgba(15, 23, 42, 0.16);
+    transition: transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.projectHeroMediaCard:hover img {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 40px
+        rgba(15, 23, 42, 0.2);
 }
 
 .projectHeroInfoCard h2 {
@@ -293,24 +355,29 @@
 }
 
 .projectImageCallout img {
-    background:
-        radial-gradient(
-            circle at top,
-            rgba(
-                var(--project-accent-rgb),
-                0.18
-            ),
-            transparent 70%
-        ),
-        linear-gradient(
-            180deg,
-            rgba(
-                var(--project-accent-rgb),
-                0.1
-            ),
-            transparent
-        );
-    padding: 20px;
+    flex: 0 0
+        clamp(220px, 28vw, 320px);
+    width: clamp(220px, 28vw, 320px);
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.96);
+    padding: clamp(22px, 3vw, 30px);
+    border-radius: 28px;
+    border: 1px solid
+        rgba(15, 23, 42, 0.08);
+    box-shadow: 0 20px 42px
+        rgba(15, 23, 42, 0.14);
+}
+
+.projectImageCallout {
+    align-items: center;
+    gap: 30px;
+}
+
+.projectImageCallout > div {
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .projectImageCallout h2 {
@@ -350,6 +417,20 @@
 }
 
 @media (max-width: 767px) {
+    .projectHeroMediaCard {
+        min-height: 220px;
+        padding: 22px;
+    }
+
+    .projectHeroMediaCard img {
+        width: min(100%, 210px);
+        max-height: 180px;
+    }
+
+    .projectMetaGrid {
+        grid-template-columns: 1fr;
+    }
+
     .projectHeroActions {
         flex-direction: column;
     }
@@ -360,5 +441,15 @@
 
     .projectHeroMeta {
         flex-direction: column;
+    }
+
+    .projectImageCallout {
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .projectImageCallout img {
+        width: min(100%, 260px);
+        flex-basis: auto;
     }
 }
