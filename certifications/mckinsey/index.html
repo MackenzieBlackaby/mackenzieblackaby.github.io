@@ -65,25 +65,35 @@
     ></script>
     <script src="/scripts/analytics.js"></script>
     <body>
-        <div class="mainPageContent">
+        <a
+            class="skipLink"
+            href="#main-content"
+        >
+            Skip to content
+        </a>
             <header id="header">
-                <h1 class="logo">
-                    <a href="/">MB</a>
-                </h1>
+                <div class="logo">
+                    <a href="/" aria-label="Home">MB</a>
+                </div>
                 <button
                     class="menuToggle"
                     id="menuToggle"
+                    type="button"
+                    aria-controls="navLinks"
+                    aria-expanded="false"
+                    aria-label="Open navigation menu"
                 >
                     &#9776;
                 </button>
-                <div
+                <nav
                     class="nav-links"
                     id="navLinks"
+                    aria-label="Primary navigation"
                 >
                 <a href="/projects"
                     >Projects</a
                 >
-                <a href="/certifications"
+                <a href="/certifications" aria-current="page"
                     >Certifications</a
                 >
                 <a href="/cv"
@@ -95,8 +105,13 @@
                 <a href="/contact"
                     >Contact</a
                 >
-                </div>
+                </nav>
             </header>
+        <main
+            id="main-content"
+            class="mainPageContent"
+            tabindex="-1"
+        >
             <div class="cardGrid">
                 <h1 class="fadeIn">
                     McKinsey
@@ -149,9 +164,28 @@
                     </div>
                 </div>
             </div>
-        </div>
 
+        </main>
         <footer>
+            <div class="footerContactBand">
+                <p class="footerContactTitle">
+                    Get in touch
+                </p>
+                <div class="footerContactLinks">
+                    <a href="/contact" class="footerContactLink">
+                <span>Email Me</span>
+                <small>Use the contact form</small>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mackenzie-blackaby-884b16217/" target="_blank" rel="noopener noreferrer" class="footerContactLink">
+                <span>LinkedIn</span>
+                <small>Professional profile</small>
+                    </a>
+                    <a href="https://github.com/MackenzieBlackaby" target="_blank" rel="noopener noreferrer" class="footerContactLink">
+                <span>GitHub</span>
+                <small>Code and projects</small>
+                    </a>
+                </div>
+            </div>
             <p>
                 &copy; 2023 Mackenzie
                 Blackaby. All rights

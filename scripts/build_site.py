@@ -23,10 +23,29 @@ NAV_ITEMS = [
     ("/contact", "Contact"),
 ]
 
+CONTACT_LINKS = [
+    (
+        "/contact",
+        "Email Me",
+        "Use the contact form",
+    ),
+    (
+        "https://www.linkedin.com/in/mackenzie-blackaby-884b16217/",
+        "LinkedIn",
+        "Professional profile",
+    ),
+    (
+        "https://github.com/MackenzieBlackaby",
+        "GitHub",
+        "Code and projects",
+    ),
+]
+
 SCRIPT_SRCS = {
     "fade": "/scripts/fade.js",
     "resetScroll": "/scripts/resetScroll.js",
     "menuToggle": "/scripts/menuToggle.js",
+    "contactFormFeedback": "/scripts/contactFormFeedback.js",
 }
 
 
@@ -93,13 +112,48 @@ def canonical_url(output: str) -> str:
     )
 
 
-def render_header() -> str:
+def output_to_route(output: str) -> str:
+    normalized = output.replace("\\", "/")
+    if normalized == "index.html":
+        return "/"
+    if normalized.endswith("/index.html"):
+        normalized = normalized[:-10]
+    elif normalized.endswith(".html"):
+        normalized = normalized[:-5]
+    return "/" + normalized.lstrip("/")
+
+
+def normalize_route(route: str) -> str:
+    if route == "/":
+        return route
+    return route.rstrip("/")
+
+
+def nav_item_is_current(
+    page_output: str, href: str
+) -> bool:
+    current = normalize_route(
+        output_to_route(page_output)
+    )
+    target = normalize_route(href)
+    return current == target or (
+        target != "/"
+        and current.startswith(target + "/")
+    )
+
+
+def render_header(page: dict) -> str:
     links = []
     for href, label in NAV_ITEMS:
+        current_attr = ""
+        if nav_item_is_current(page["output"], href):
+            current_attr = (
+                ' aria-current="page"'
+            )
         links.extend(
             [
                 "                <a"
-                f' href="{href}"',
+                f' href="{href}"{current_attr}',
                 f"                    >{label}</a",
                 "                >",
             ]
@@ -108,30 +162,62 @@ def render_header() -> str:
     return "\n".join(
         [
             "            <header id=\"header\">",
-            "                <h1 class=\"logo\">",
-            "                    <a href=\"/\">MB</a>",
-            "                </h1>",
+            "                <div class=\"logo\">",
+            '                    <a href="/" aria-label="Home">MB</a>',
+            "                </div>",
             "                <button",
             "                    class=\"menuToggle\"",
             "                    id=\"menuToggle\"",
+            '                    type="button"',
+            '                    aria-controls="navLinks"',
+            '                    aria-expanded="false"',
+            '                    aria-label="Open navigation menu"',
             "                >",
             "                    &#9776;",
             "                </button>",
-            "                <div",
+            "                <nav",
             "                    class=\"nav-links\"",
             "                    id=\"navLinks\"",
+            '                    aria-label="Primary navigation"',
             "                >",
             nav,
-            "                </div>",
+            "                </nav>",
             "            </header>",
         ]
     )
 
 
 def render_footer(note: str) -> str:
+    contact_links = []
+    for href, label, description in CONTACT_LINKS:
+        attrs = [f'href="{href}"']
+        if href.startswith("http"):
+            attrs.append('target="_blank"')
+            attrs.append(
+                'rel="noopener noreferrer"'
+            )
+        attrs.append(
+            'class="footerContactLink"'
+        )
+        contact_links.extend(
+            [
+                f"                    <a {' '.join(attrs)}>",
+                f"                <span>{label}</span>",
+                f"                <small>{description}</small>",
+                "                    </a>",
+            ]
+        )
     return "\n".join(
         [
             "        <footer>",
+            '            <div class="footerContactBand">',
+            '                <p class="footerContactTitle">',
+            "                    Get in touch",
+            "                </p>",
+            '                <div class="footerContactLinks">',
+            *contact_links,
+            "                </div>",
+            "            </div>",
             "            <p>",
             "                &copy; 2023 Mackenzie",
             "                Blackaby. All rights",
@@ -180,7 +266,7 @@ def render_page(page: dict) -> str:
             if page.get("body_class")
             else ""
         ),
-        "{{header}}": render_header(),
+        "{{header}}": render_header(page),
         "{{main_content}}": read_fragment(
             page["content"]
         ),

@@ -65,20 +65,30 @@
     ></script>
     <script src="/scripts/analytics.js"></script>
     <body>
-        <div class="mainPageContent">
+        <a
+            class="skipLink"
+            href="#main-content"
+        >
+            Skip to content
+        </a>
             <header id="header">
-                <h1 class="logo">
-                    <a href="/">MB</a>
-                </h1>
+                <div class="logo">
+                    <a href="/" aria-label="Home">MB</a>
+                </div>
                 <button
                     class="menuToggle"
                     id="menuToggle"
+                    type="button"
+                    aria-controls="navLinks"
+                    aria-expanded="false"
+                    aria-label="Open navigation menu"
                 >
                     &#9776;
                 </button>
-                <div
+                <nav
                     class="nav-links"
                     id="navLinks"
+                    aria-label="Primary navigation"
                 >
                 <a href="/projects"
                     >Projects</a
@@ -92,15 +102,20 @@
                 <a href="/interests/"
                     >Interests</a
                 >
-                <a href="/contact"
+                <a href="/contact" aria-current="page"
                     >Contact</a
                 >
-                </div>
+                </nav>
             </header>
-            <div
+        <main
+            id="main-content"
+            class="mainPageContent"
+            tabindex="-1"
+        >
+            <section
                 class="contentCard fadeIn"
             >
-                <h2>Contact Me</h2>
+                <h1>Contact Me</h1>
                 <p>
                     If you'd like to get
                     in touch, use the
@@ -108,11 +123,22 @@
                     aim to get back to
                     you within 24 hours.
                 </p>
+                <p
+                    class="contactFormIntro"
+                    id="contactFormIntro"
+                >
+                    All fields are
+                    required. Use a valid
+                    email address so I can
+                    reply clearly.
+                </p>
 
                 <form
                     action="https://formsubmit.co/c32e87ccedf60aa5884ccb8006ce2cbf"
                     method="POST"
                     class="contactForm"
+                    aria-describedby="contactFormIntro contactFormStatus"
+                    novalidate
                 >
                     <input
                         type="hidden"
@@ -126,45 +152,112 @@
                         value="https://www.blackaby.uk/contact/thankyou"
                     />
 
-                    <label for="name"
-                        >Name:</label
-                    >
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                    />
+                    <div class="contactFormField">
+                        <label for="name"
+                            >Name
+                            <span class="contactFormRequired" aria-hidden="true"
+                                >*</span
+                            ></label
+                        >
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            autocomplete="name"
+                            required
+                            aria-describedby="nameHelp"
+                        />
+                        <p
+                            class="contactFormHelp"
+                            id="nameHelp"
+                        >
+                            Use the name you want
+                            me to reply to.
+                        </p>
+                    </div>
 
-                    <label for="email"
-                        >Email:</label
-                    >
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                    />
+                    <div class="contactFormField">
+                        <label for="email"
+                            >Email
+                            <span class="contactFormRequired" aria-hidden="true"
+                                >*</span
+                            ></label
+                        >
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            autocomplete="email"
+                            inputmode="email"
+                            required
+                            aria-describedby="emailHelp"
+                        />
+                        <p
+                            class="contactFormHelp"
+                            id="emailHelp"
+                        >
+                            This should be a valid
+                            address so I can get
+                            back to you.
+                        </p>
+                    </div>
 
-                    <label for="subject"
-                        >Subject:</label
-                    >
-                    <input
-                        type="text"
-                        id="subject"
-                        name="_subject"
-                        required
-                    />
+                    <div class="contactFormField">
+                        <label for="subject"
+                            >Subject
+                            <span class="contactFormRequired" aria-hidden="true"
+                                >*</span
+                            ></label
+                        >
+                        <input
+                            type="text"
+                            id="subject"
+                            name="_subject"
+                            autocomplete="off"
+                            required
+                            aria-describedby="subjectHelp"
+                        />
+                        <p
+                            class="contactFormHelp"
+                            id="subjectHelp"
+                        >
+                            A short summary helps
+                            me prioritise your
+                            message.
+                        </p>
+                    </div>
 
-                    <label for="message"
-                        >Message:</label
-                    >
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="6"
-                        required
-                    ></textarea>
+                    <div class="contactFormField">
+                        <label for="message"
+                            >Message
+                            <span class="contactFormRequired" aria-hidden="true"
+                                >*</span
+                            ></label
+                        >
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                            autocomplete="off"
+                            required
+                            aria-describedby="messageHelp"
+                        ></textarea>
+                        <p
+                            class="contactFormHelp"
+                            id="messageHelp"
+                        >
+                            Include the context,
+                            goal, or question you
+                            want help with.
+                        </p>
+                    </div>
+
+                    <p
+                        class="contactFormStatus"
+                        id="contactFormStatus"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
 
                     <button
                         type="submit"
@@ -172,10 +265,29 @@
                         Send Message
                     </button>
                 </form>
-            </div>
-        </div>
+            </section>
 
+        </main>
         <footer>
+            <div class="footerContactBand">
+                <p class="footerContactTitle">
+                    Get in touch
+                </p>
+                <div class="footerContactLinks">
+                    <a href="/contact" class="footerContactLink">
+                <span>Email Me</span>
+                <small>Use the contact form</small>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mackenzie-blackaby-884b16217/" target="_blank" rel="noopener noreferrer" class="footerContactLink">
+                <span>LinkedIn</span>
+                <small>Professional profile</small>
+                    </a>
+                    <a href="https://github.com/MackenzieBlackaby" target="_blank" rel="noopener noreferrer" class="footerContactLink">
+                <span>GitHub</span>
+                <small>Code and projects</small>
+                    </a>
+                </div>
+            </div>
             <p>
                 &copy; 2023 Mackenzie
                 Blackaby. All rights
@@ -187,6 +299,7 @@
         <script src="/scripts/fade.js"></script>
         <script src="/scripts/resetScroll.js"></script>
         <script src="/scripts/menuToggle.js"></script>
+        <script src="/scripts/contactFormFeedback.js"></script>
     </body>
 </html>
 

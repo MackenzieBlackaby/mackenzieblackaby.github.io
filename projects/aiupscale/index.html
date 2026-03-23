@@ -65,22 +65,32 @@
     ></script>
     <script src="/scripts/analytics.js"></script>
     <body class="projectDetailPage projectThemeTeal">
-        <div class="mainPageContent">
+        <a
+            class="skipLink"
+            href="#main-content"
+        >
+            Skip to content
+        </a>
             <header id="header">
-                <h1 class="logo">
-                    <a href="/">MB</a>
-                </h1>
+                <div class="logo">
+                    <a href="/" aria-label="Home">MB</a>
+                </div>
                 <button
                     class="menuToggle"
                     id="menuToggle"
+                    type="button"
+                    aria-controls="navLinks"
+                    aria-expanded="false"
+                    aria-label="Open navigation menu"
                 >
                     &#9776;
                 </button>
-                <div
+                <nav
                     class="nav-links"
                     id="navLinks"
+                    aria-label="Primary navigation"
                 >
-                <a href="/projects"
+                <a href="/projects" aria-current="page"
                     >Projects</a
                 >
                 <a href="/certifications"
@@ -95,8 +105,13 @@
                 <a href="/contact"
                     >Contact</a
                 >
-                </div>
+                </nav>
             </header>
+        <main
+            id="main-content"
+            class="mainPageContent"
+            tabindex="-1"
+        >
             <section
                 class="contentCard fadeIn projectHero instant"
             >
@@ -195,15 +210,15 @@
             <section
                 class="threeCol fadeIn projectThreeCol"
             >
-                <h1>Project Snapshot</h1>
+                <h2>Project Snapshot</h2>
                 <div class="threeColPanel">
                     <div class="column">
                         <span class="projectBadge"
                             >Domain</span
                         >
-                        <h1>
+                        <h3>
                             Image super-resolution
-                        </h1>
+                        </h3>
                         <p>
                             The project targets
                             low-resolution imagery and
@@ -217,10 +232,10 @@
                         <span class="projectBadge"
                             >Technique</span
                         >
-                        <h1>
+                        <h3>
                             Convolutional neural
                             networks
-                        </h1>
+                        </h3>
                         <p>
                             Upscale explores
                             learning-based image
@@ -233,10 +248,10 @@
                         <span class="projectBadge"
                             >Outcome</span
                         >
-                        <h1>
+                        <h3>
                             Sharper textures and
                             edges
-                        </h1>
+                        </h3>
                         <p>
                             The intent is to produce
                             images that look more
@@ -486,9 +501,28 @@
                     </div>
                 </div>
             </section>
-        </div>
 
+        </main>
         <footer>
+            <div class="footerContactBand">
+                <p class="footerContactTitle">
+                    Get in touch
+                </p>
+                <div class="footerContactLinks">
+                    <a href="/contact" class="footerContactLink">
+                <span>Email Me</span>
+                <small>Use the contact form</small>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mackenzie-blackaby-884b16217/" target="_blank" rel="noopener noreferrer" class="footerContactLink">
+                <span>LinkedIn</span>
+                <small>Professional profile</small>
+                    </a>
+                    <a href="https://github.com/MackenzieBlackaby" target="_blank" rel="noopener noreferrer" class="footerContactLink">
+                <span>GitHub</span>
+                <small>Code and projects</small>
+                    </a>
+                </div>
+            </div>
             <p>
                 &copy; 2023 Mackenzie
                 Blackaby. All rights

@@ -65,22 +65,32 @@
     ></script>
     <script src="/scripts/analytics.js"></script>
     <body class="projectDetailPage">
-        <div class="mainPageContent">
+        <a
+            class="skipLink"
+            href="#main-content"
+        >
+            Skip to content
+        </a>
             <header id="header">
-                <h1 class="logo">
-                    <a href="/">MB</a>
-                </h1>
+                <div class="logo">
+                    <a href="/" aria-label="Home">MB</a>
+                </div>
                 <button
                     class="menuToggle"
                     id="menuToggle"
+                    type="button"
+                    aria-controls="navLinks"
+                    aria-expanded="false"
+                    aria-label="Open navigation menu"
                 >
                     &#9776;
                 </button>
-                <div
+                <nav
                     class="nav-links"
                     id="navLinks"
+                    aria-label="Primary navigation"
                 >
-                <a href="/projects"
+                <a href="/projects" aria-current="page"
                     >Projects</a
                 >
                 <a href="/certifications"
@@ -95,8 +105,13 @@
                 <a href="/contact"
                     >Contact</a
                 >
-                </div>
+                </nav>
             </header>
+        <main
+            id="main-content"
+            class="mainPageContent"
+            tabindex="-1"
+        >
             <section
                 class="contentCard fadeIn projectHero instant"
             >
@@ -190,13 +205,13 @@
             <section
                 class="threeCol fadeIn projectThreeCol"
             >
-                <h1>Project Snapshot</h1>
+                <h2>Project Snapshot</h2>
                 <div class="threeColPanel">
                     <div class="column">
                         <span class="projectBadge"
                             >Stack</span
                         >
-                        <h1>Java 22 + Swing</h1>
+                        <h3>Java 22 + Swing</h3>
                         <p>
                             GameDuck is built as a
                             Java desktop
@@ -210,7 +225,7 @@
                         <span class="projectBadge"
                             >Scope</span
                         >
-                        <h1>GB / GBC focused</h1>
+                        <h3>GB / GBC focused</h3>
                         <p>
                             The suite targets
                             original Game Boy and
@@ -226,7 +241,7 @@
                         <span class="projectBadge"
                             >Current release</span
                         >
-                        <h1>v0.1.0-alpha</h1>
+                        <h3>v0.1.0-alpha</h3>
                         <p>
                             The first public
                             packaged release
@@ -607,15 +622,15 @@
             </section>
 
             <section class="threeCol fadeIn projectThreeCol">
-                <h1>Roadmap Toward v1.0</h1>
+                <h2>Roadmap Toward v1.0</h2>
                 <div class="threeColPanel">
                     <div class="column">
                         <span class="projectBadge"
                             >Compatibility</span
                         >
-                        <h1>
+                        <h3>
                             Hardware coverage
-                        </h1>
+                        </h3>
                         <p>
                             Planned work includes
                             Super Game Boy support
@@ -629,9 +644,9 @@
                         <span class="projectBadge"
                             >Usability</span
                         >
-                        <h1>
+                        <h3>
                             Cleaner updates and UI
-                        </h1>
+                        </h3>
                         <p>
                             The current roadmap also
                             mentions ROM deletion
@@ -645,9 +660,9 @@
                         <span class="projectBadge"
                             >Advanced features</span
                         >
-                        <h1>
+                        <h3>
                             Link cable direction
-                        </h1>
+                        </h3>
                         <p>
                             Longer-term goals include
                             two simultaneous
@@ -703,9 +718,28 @@
                     placeholder copy.
                 </p>
             </section>
-        </div>
 
+        </main>
         <footer>
+            <div class="footerContactBand">
+                <p class="footerContactTitle">
+                    Get in touch
+                </p>
+                <div class="footerContactLinks">
+                    <a href="/contact" class="footerContactLink">
+                <span>Email Me</span>
+                <small>Use the contact form</small>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mackenzie-blackaby-884b16217/" target="_blank" rel="noopener noreferrer" class="footerContactLink">
+                <span>LinkedIn</span>
+                <small>Professional profile</small>
+                    </a>
+                    <a href="https://github.com/MackenzieBlackaby" target="_blank" rel="noopener noreferrer" class="footerContactLink">
+                <span>GitHub</span>
+                <small>Code and projects</small>
+                    </a>
+                </div>
+            </div>
             <p>
                 &copy; 2023 Mackenzie
                 Blackaby. All rights

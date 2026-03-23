@@ -5,9 +5,29 @@
     margin-top: 24px;
 }
 
+.contactFormIntro,
+.contactFormHelp {
+    color: var(--textColourMid);
+    line-height: 1.65;
+}
+
+.contactFormIntro {
+    margin: 0 0 6px;
+}
+
+.contactFormField {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .contactForm label {
     font-weight: 600;
     color: var(--textColour);
+}
+
+.contactFormRequired {
+    color: var(--themeColour);
 }
 
 .contactForm input,
@@ -37,6 +57,34 @@
     );
     box-shadow: 0 0 0 4px
         rgba(33, 72, 135, 0.12);
+}
+
+.contactForm input[aria-invalid="true"],
+.contactForm textarea[aria-invalid="true"] {
+    border-color: rgba(
+        179,
+        54,
+        54,
+        0.46
+    );
+    box-shadow: 0 0 0 4px
+        rgba(179, 54, 54, 0.1);
+}
+
+.contactFormHelp {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.contactFormStatus {
+    min-height: 1.5rem;
+    margin: 0;
+    font-weight: 600;
+    color: var(--themeColourMid);
+}
+
+.contactFormStatus.isError {
+    color: #a12a2a;
 }
 
 .contactForm button {

@@ -71,6 +71,16 @@ header.headerExpanded {
         transform 0.25s ease;
 }
 
+.nav-links a[aria-current="page"] {
+    color: var(--themeColour);
+    background: rgba(
+        33,
+        72,
+        135,
+        0.08
+    );
+}
+
 header a:hover {
     color: var(--themeColour);
     background: rgba(
@@ -80,6 +90,17 @@ header a:hover {
         0.08
     );
     transform: translateY(-1px);
+}
+
+header a:focus-visible,
+.menuToggle:focus-visible {
+    color: var(--themeColour);
+    background: rgba(
+        33,
+        72,
+        135,
+        0.12
+    );
 }
 
 /* ===== Mobile Styling ===== */
@@ -142,7 +163,7 @@ header a:hover {
 
     .nav-links.show {
         max-height: 600px;
-        transform: translateY(10);
+        transform: translateY(10px);
         border-bottom: 1px solid
             var(--panelBorder);
     }

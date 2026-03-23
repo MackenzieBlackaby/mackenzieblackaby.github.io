@@ -65,20 +65,30 @@
     ></script>
     <script src="/scripts/analytics.js"></script>
     <body>
-        <div class="mainPageContent">
+        <a
+            class="skipLink"
+            href="#main-content"
+        >
+            Skip to content
+        </a>
             <header id="header">
-                <h1 class="logo">
-                    <a href="/">MB</a>
-                </h1>
+                <div class="logo">
+                    <a href="/" aria-label="Home">MB</a>
+                </div>
                 <button
                     class="menuToggle"
                     id="menuToggle"
+                    type="button"
+                    aria-controls="navLinks"
+                    aria-expanded="false"
+                    aria-label="Open navigation menu"
                 >
                     &#9776;
                 </button>
-                <div
+                <nav
                     class="nav-links"
                     id="navLinks"
+                    aria-label="Primary navigation"
                 >
                 <a href="/projects"
                     >Projects</a
@@ -95,9 +105,14 @@
                 <a href="/contact"
                     >Contact</a
                 >
-                </div>
+                </nav>
             </header>
-            <div
+        <main
+            id="main-content"
+            class="mainPageContent"
+            tabindex="-1"
+        >
+            <section
                 class="pfpCard fadeIn instant"
             >
                 <img
@@ -105,10 +120,10 @@
                     alt="Profile Picture"
                 />
                 <div class="pfpText">
-                    <h2>
+                    <h1>
                         Mackenzie
                         Blackaby
-                    </h2>
+                    </h1>
                     <p class="pfpLead">
                         Full-stack software
                         engineer and
@@ -141,28 +156,55 @@
                         >
                             Download CV
                         </a>
+                    </div>
+                    <div
+                        class="pfpContactLinks"
+                        aria-label="Direct contact links"
+                    >
                         <a
-                            class="pfpActionButton pfpActionButtonSecondary"
+                            class="pfpContactLink"
                             href="/contact"
                         >
-                            Contact Me
+                            <span>Email Me</span>
+                            <small>Use the contact form</small>
+                        </a>
+                        <a
+                            class="pfpContactLink"
+                            href="https://www.linkedin.com/in/mackenzie-blackaby-884b16217/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span>LinkedIn</span>
+                            <small>Professional profile</small>
+                        </a>
+                        <a
+                            class="pfpContactLink"
+                            href="https://github.com/MackenzieBlackaby"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span>GitHub</span>
+                            <small>Code and projects</small>
                         </a>
                     </div>
                 </div>
-            </div>
-            <div
+            </section>
+            <section
                 class="threeCol fadeIn"
+                aria-labelledby="featured-projects-title"
             >
-                <h1>Projects:</h1>
+                <h2 id="featured-projects-title">
+                    Featured Projects
+                </h2>
                 <div
                     class="threeColPanel"
                 >
                     <a
                         href="projects/gameduck"
                     >
-                        <h1>
+                        <h3>
                             GameDuck
-                        </h1>
+                        </h3>
                         <p>
                             A modern
                             take on
@@ -185,17 +227,17 @@
                     <a
                         href="projects/aiupscale"
                     >
-                        <h1>
+                        <h3>
                             Upscale
-                        </h1>
+                        </h3>
                         <p>
                             A Super resolution convolutional neural network model, trained on the Flickr2K dataset, that can upscale low resolution images
                         </p>
                     </a>
                     <a href="projects">
-                        <h1>
+                        <h3>
                             Other...
-                        </h1>
+                        </h3>
                         <p>
                             Click here
                             to see all
@@ -205,11 +247,14 @@
                         </p>
                     </a>
                 </div>
-            </div>
-            <div
+            </section>
+            <section
                 class="contentCard fadeIn"
+                aria-labelledby="education-title"
             >
-                <h2>Education</h2>
+                <h2 id="education-title">
+                    Education
+                </h2>
                 <a
                     href="https://www.manchester.ac.uk/study/masters/courses/list/21573/msc-advanced-computer-science/"
                     class="contentBox"
@@ -233,12 +278,14 @@
                             Advanced
                             Computer
                             Science
-                            <br />
-                            <b
-                                >Status: </b
-                            >In progress
-                            <h4>2025-2026</h4>
                         </p>
+                        <p class="contentBoxMeta">
+                            <b
+                                >Status:
+                            </b>
+                            In progress
+                        </p>
+                        <h4>2025-2026</h4>
                     </div>
                 </a>
                 <a
@@ -262,17 +309,19 @@
                             >
                             Computer
                             Science
-                            <br />
+                        </p>
+                        <p class="contentBoxMeta">
                             <b
                                 >Final
-                                grade: </b
-                            >1st class
+                                grade:
+                            </b>
+                            1st class
                             Hons
-                            <h4>2022-2025</h4>
                         </p>
+                        <h4>2022-2025</h4>
                     </div>
                 </a>
-                <a class="contentBox">
+                <div class="contentBox">
                     <img
                         src="/Resources/Images/kings.png"
                         alt="KSM Logo"
@@ -287,20 +336,25 @@
                                 >A
                                 Levels</b
                             >
-                            <br />
+                        </p>
+                        <p class="contentBoxMeta">
                             <b
                                 >Final
-                                grades: </b
-                            >A* A A
-                            <h4>2020-2022</h4>
+                                grades:
+                            </b>
+                            A* A A
                         </p>
+                        <h4>2020-2022</h4>
                     </div>
-                </a>
-            </div>
-            <div
+                </div>
+            </section>
+            <section
                 class="contentCard fadeIn"
+                aria-labelledby="certifications-title"
             >
-                <h2>Certifications</h2>
+                <h2 id="certifications-title">
+                    Certifications
+                </h2>
                 <a
                     href="/certifications/mckinsey/index.html"
                     class="contentBox"
@@ -316,15 +370,17 @@
                         <p>
                             McKinsey Forward is an online learning programme by McKinsey & Company focused on practical workplace skills like problem-solving, communication, and adaptability.
                         </p>
-                        <br>
                         <h4>Completed: 12/25</h4>
                     </div>
                 </a>
-            </div>
-            <div
+            </section>
+            <section
                 class="contentCard fadeIn"
+                aria-labelledby="links-title"
             >
-                <h2>Links</h2>
+                <h2 id="links-title">
+                    Links
+                </h2>
                 <a
                     href="https://www.linkedin.com/in/mackenzie-blackaby-884b16217/"
                     class="contentBox"
@@ -373,10 +429,29 @@
                         </p>
                     </div>
                 </a>
-            </div>
-        </div>
+            </section>
 
+        </main>
         <footer>
+            <div class="footerContactBand">
+                <p class="footerContactTitle">
+                    Get in touch
+                </p>
+                <div class="footerContactLinks">
+                    <a href="/contact" class="footerContactLink">
+                <span>Email Me</span>
+                <small>Use the contact form</small>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mackenzie-blackaby-884b16217/" target="_blank" rel="noopener noreferrer" class="footerContactLink">
+                <span>LinkedIn</span>
+                <small>Professional profile</small>
+                    </a>
+                    <a href="https://github.com/MackenzieBlackaby" target="_blank" rel="noopener noreferrer" class="footerContactLink">
+                <span>GitHub</span>
+                <small>Code and projects</small>
+                    </a>
+                </div>
+            </div>
             <p>
                 &copy; 2023 Mackenzie
                 Blackaby. All rights
