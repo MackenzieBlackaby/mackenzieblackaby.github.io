@@ -1,60 +1,65 @@
 .pfpCard {
     width: 100%;
-    max-width: 80%;
+    max-width: min(88%, 1220px);
     margin: 40px auto;
-    padding: 40px;
+    padding: 44px 48px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    border-radius: 24px;
+    justify-content: flex-start;
+    border-radius: 32px;
     font-family: var(--mainFont);
-    min-height: 260px;
-    gap: 40px;
+    min-height: 340px;
+    gap: clamp(32px, 5vw, 72px);
+    position: relative;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255, 255, 255, 0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            var(--themeColour) 0%,
+            var(--themeColourMid) 58%,
+            #09162c 100%
+        );
+    color: #ffffff;
+    box-shadow: var(--panelShadow);
 }
 
 .pfpCard img {
-    width: 100%;
-    max-width: 200px;
+    width: clamp(260px, 28vw, 420px);
+    max-width: none;
     aspect-ratio: 1;
     object-fit: cover;
+    object-position: center;
     border-radius: 25%;
-    border: 6px solid var(--themeColour);
-    flex-shrink: 0;
+    border: 6px solid
+        rgba(255, 255, 255, 0.3);
+    flex: 0 0 clamp(260px, 28vw, 420px);
+    box-shadow: 0 18px 36px
+        rgba(0, 0, 0, 0.22);
 }
 
 .pfpText {
     text-align: left;
-    flex: 0 1 auto;
+    flex: 1 1 420px;
     padding: 0;
-    max-width: 500px;
+    max-width: 620px;
 }
 
 .pfpText h2 {
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0 0 10px;
-    color: var(--textColour);
+    color: #ffffff;
 }
 
 .pfpText p {
     font-size: 1rem;
-    line-height: 1.5;
-    color: var(--textColourMid);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.86);
     margin: 0;
-}
-
-@media (min-width: 768px) {
-    .pfpText h2 {
-        font-size: 3rem;
-    }
-
-    .pfpText p {
-        font-size: 1.2rem;
-    }
-
-    .pfpCard img {
-        max-width: 300px;
-    }
 }
 
 @media (min-width: 1200px) {
@@ -63,10 +68,7 @@
     }
 
     .pfpText p {
-        font-size: 2rem;
-    }
-    .pfpCard img {
-        max-width: 450px;
+        font-size: 1.6rem;
     }
 }
 
@@ -74,7 +76,8 @@
     .pfpCard {
         flex-direction: column;
         text-align: center;
-        padding: 20px;
+        padding: 28px 20px;
+        min-height: auto;
     }
 
     .pfpText {
@@ -84,6 +87,7 @@
 
     .pfpCard img {
         margin-bottom: 20px;
-        max-width: 300px;
+        width: min(100%, 300px);
+        flex-basis: auto;
     }
 }

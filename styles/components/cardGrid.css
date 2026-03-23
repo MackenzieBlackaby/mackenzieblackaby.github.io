@@ -4,14 +4,15 @@
 }
 
 .cardGrid h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 0.5rem;
-    color: var(--textColorDark);
+    color: var(--textColour);
+    line-height: 1.05;
 }
 
 .cardGrid p {
-    font-size: 1rem;
-    color: var(--textColorMedium);
+    font-size: 1.05rem;
+    color: var(--textColourMid);
     margin-bottom: 2rem;
 }
 
@@ -31,17 +32,22 @@
     grid-template-rows: 1fr auto;
     align-items: start;
     gap: 0 1.5rem;
-    background-color: var(
-        --backgroundColourMid,
-        #f9f9f9
-    );
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.12),
+            transparent
+        ),
+        var(--backgroundColourMid);
     padding: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px
-        rgba(0, 0, 0, 0.06);
+    border-radius: 24px;
+    border: 1px solid
+        var(--panelBorder);
+    box-shadow: var(--panelShadow);
     text-align: left;
     transition: transform 0.25s ease,
-        box-shadow 0.25s ease;
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .gridCard img {
@@ -49,10 +55,17 @@
     grid-row: 1/3;
     width: 80px;
     height: auto;
-    border-radius: 8px;
+    border-radius: 16px;
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(33, 72, 135, 0.12),
+            transparent 74%
+        );
+    padding: 10px;
 }
 
-.gridCard.cardContent {
+.gridCard .cardContent {
     grid-column: 2;
     grid-row: 1;
 }
@@ -65,20 +78,27 @@
 }
 
 .gridCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 18px
-        rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+    border-color: rgba(
+        33,
+        72,
+        135,
+        0.18
+    );
+    box-shadow: 0 24px 38px
+        rgba(15, 23, 42, 0.12);
 }
 
 .gridCard h2 {
-    font-size: 1.3rem;
+    font-size: 1.45rem;
     margin-bottom: 0.5rem;
-    color: var(--textColorDark);
+    color: var(--textColour);
 }
 
 .gridCard p {
     font-size: 1rem;
-    color: var(--textColorMedium);
+    color: var(--textColourMid);
+    line-height: 1.7;
 }
 
 .gridCard a {
@@ -87,9 +107,39 @@
     color: var(--themeColour);
     font-weight: 600;
     text-decoration: none;
-    transition: color 0.2s;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .gridCard a:hover {
-    color: #000;
+    color: var(--themeColourMid);
+    transform: translateX(2px);
+}
+
+@media (max-width: 767px) {
+    .cardGrid {
+        padding: 8% 5%;
+    }
+
+    .gridCard {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .gridCard img {
+        grid-column: 1;
+        grid-row: auto;
+        width: 72px;
+    }
+
+    .gridCard .cardContent,
+    .gridCard a {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .gridCard a {
+        justify-self: start;
+    }
 }

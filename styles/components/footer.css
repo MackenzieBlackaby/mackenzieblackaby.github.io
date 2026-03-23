@@ -1,19 +1,26 @@
 footer {
-    background-color: var(
-        --backgroundColourMid
-    );
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.08),
+            transparent
+        ),
+        var(--backgroundColourMid);
     margin: 0px;
-    padding: 1rem;
+    margin-top: auto;
+    padding: 2rem 1rem;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     bottom: 0;
     color: var(--textColourMid);
-    border-top: 5px solid
-        var(--themeColourMid);
+    border-top: 1px solid
+        var(--panelBorder);
+    width: 100%;
 }
 
 footer p {
     color: var(--textColour);
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: bold;
+    margin: 0;
 }

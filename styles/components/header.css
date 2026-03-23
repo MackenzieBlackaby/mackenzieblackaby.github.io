@@ -2,19 +2,25 @@ header {
     color: var(--textColour);
     width: 100%;
     margin: 0;
+    padding: 0 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 5px solid
-        var(--themeColour);
+    border-bottom: 1px solid
+        var(--panelBorder);
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: var(--backgroundColour);
+    background: var(
+        --headerBackground
+    );
+    backdrop-filter: blur(18px);
+    box-shadow: 0 10px 24px
+        rgba(15, 23, 42, 0.04);
 }
 
 header.headerExpanded {
-    border-bottom: none;
+    border-bottom-color: transparent;
 }
 
 .logo {
@@ -26,45 +32,72 @@ header.headerExpanded {
 .logo a {
     text-decoration: none;
     color: var(--textColour);
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: bold;
-    padding: 0.5rem 2rem;
+    padding: 1rem 0;
+    letter-spacing: 0.04em;
 }
 
 .nav-links {
     display: flex;
     text-align: right;
     gap: 1rem;
+    align-items: center;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--textColour);
-    padding: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 999px;
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.25s ease;
 }
 
 header a:hover {
-    color: var(--themeColourMid);
-    transition: color 0.3s;
+    color: var(--themeColour);
+    background: rgba(
+        33,
+        72,
+        135,
+        0.08
+    );
+    transform: translateY(-1px);
 }
 
 /* ===== Mobile Styling ===== */
 .menuToggle {
     display: none;
     font-size: 2rem;
-    background: none;
+    background: rgba(
+        33,
+        72,
+        135,
+        0.08
+    );
     border: none;
     color: var(--textColour);
-    padding: 1rem 2rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    padding: 0;
     cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
 }
 
 .menuToggle.rotated {
     transform: rotate(90deg);
-    transition: transform 0.3s;
 }
 
 @media (max-width: 767px) {
+    header {
+        padding: 0 1rem;
+    }
+
     .menuToggle {
         display: block;
     }
@@ -72,8 +105,10 @@ header a:hover {
     .nav-links {
         flex-direction: column;
         align-items: center;
-        background-color: var(
-            --backgroundColour
+        background: linear-gradient(
+            180deg,
+            var(--headerMenuBackground),
+            var(--headerBackground)
         );
         overflow: hidden;
         max-height: 0;
@@ -85,19 +120,22 @@ header a:hover {
         top: 100%;
         left: 0;
         z-index: 999;
-        opacity: 1; /* Always fully visible */
+        opacity: 1;
+        box-shadow: 0 18px 36px
+            rgba(15, 23, 42, 0.1);
     }
 
     .nav-links.show {
-        max-height: 600px; /* or auto with JS if you want */
+        max-height: 600px;
         transform: translateY(10);
-        border-bottom: 5px solid
-            var(--themeColour);
+        border-bottom: 1px solid
+            var(--panelBorder);
     }
 
     .nav-links a {
         width: 100%;
         text-align: center;
         padding: 1rem 0;
+        border-radius: 0;
     }
 }
