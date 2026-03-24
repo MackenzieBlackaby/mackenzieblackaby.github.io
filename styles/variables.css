@@ -51,6 +51,30 @@
             37,
             0.96
         );
+        --headerPanelSurface: rgba(
+            17,
+            24,
+            34,
+            0.96
+        );
+        --headerPanelCard: rgba(
+            255,
+            255,
+            255,
+            0.05
+        );
+        --headerPanelCardBorder: rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+        --headerBackdrop: rgba(
+            6,
+            10,
+            16,
+            0.46
+        );
     }
 }
 
@@ -98,6 +122,30 @@
             251,
             255,
             0.96
+        );
+        --headerPanelSurface: rgba(
+            248,
+            251,
+            255,
+            0.98
+        );
+        --headerPanelCard: rgba(
+            255,
+            255,
+            255,
+            0.82
+        );
+        --headerPanelCardBorder: rgba(
+            33,
+            72,
+            135,
+            0.14
+        );
+        --headerBackdrop: rgba(
+            15,
+            23,
+            42,
+            0.14
         );
     }
 }

@@ -16,11 +16,31 @@ PAGES = json.loads(
 )
 
 NAV_ITEMS = [
-    ("/projects", "Projects"),
-    ("/certifications", "Certifications"),
-    ("/cv", "CV"),
-    ("/interests/", "Interests"),
-    ("/contact", "Contact"),
+    (
+        "/projects",
+        "Projects",
+        "Selected builds, case studies, and shipped work",
+    ),
+    (
+        "/certifications",
+        "Certifications",
+        "Professional learning and accredited achievements",
+    ),
+    (
+        "/cv",
+        "CV",
+        "Experience, education, and a downloadable resume",
+    ),
+    (
+        "/interests/",
+        "Interests",
+        "The topics, hobbies, and ideas behind the work",
+    ),
+    (
+        "/contact",
+        "Contact",
+        "Ways to get in touch and start a conversation",
+    ),
 ]
 
 CONTACT_LINKS = [
@@ -144,7 +164,7 @@ def nav_item_is_current(
 
 def render_header(page: dict) -> str:
     links = []
-    for href, label in NAV_ITEMS:
+    for href, label, meta in NAV_ITEMS:
         current_attr = ""
         if nav_item_is_current(page["output"], href):
             current_attr = (
@@ -154,8 +174,12 @@ def render_header(page: dict) -> str:
             [
                 "                <a"
                 f' href="{href}"{current_attr}',
-                f"                    >{label}</a",
                 "                >",
+                '                    <span class="navLinkCopy">',
+                f'                        <span class="navLinkLabel">{label}</span>',
+                f'                        <span class="navLinkMeta">{meta}</span>',
+                "                    </span>",
+                "                </a>",
             ]
         )
     nav = "\n".join(links)
@@ -173,13 +197,30 @@ def render_header(page: dict) -> str:
             '                    aria-expanded="false"',
             '                    aria-label="Open navigation menu"',
             "                >",
-            "                    &#9776;",
+            '                    <span class="menuToggleText" id="menuToggleLabel">Menu</span>',
+            '                    <span class="menuToggleIcon" aria-hidden="true">',
+            "                        <span></span>",
+            "                        <span></span>",
+            "                        <span></span>",
+            "                    </span>",
+            "                </button>",
+            "                <button",
+            "                    class=\"menuBackdrop\"",
+            "                    id=\"menuBackdrop\"",
+            '                    type="button"',
+            '                    aria-label="Close navigation menu"',
+            "                    hidden",
+            "                >",
             "                </button>",
             "                <nav",
             "                    class=\"nav-links\"",
             "                    id=\"navLinks\"",
             '                    aria-label="Primary navigation"',
             "                >",
+            '                    <div class="nav-linksIntro">',
+            '                        <p class="navLinksEyebrow">Navigation</p>',
+            '                        <p class="navLinksTitle">Choose a section</p>',
+            "                    </div>",
             nav,
             "                </nav>",
             "            </header>",

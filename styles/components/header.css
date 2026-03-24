@@ -5,6 +5,7 @@ header {
     padding: 0 1.5rem;
     display: flex;
     align-items: center;
+    gap: 1rem;
     justify-content: space-between;
     border-bottom: 1px solid
         var(--panelBorder);
@@ -21,32 +22,38 @@ header {
 
 header.headerExpanded {
     border-bottom-color: transparent;
+    box-shadow: 0 18px 40px
+        rgba(15, 23, 42, 0.08);
 }
 
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
+    position: relative;
+    z-index: 1001;
 }
 
 .logo a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    color: var(--textColour);
-    font-size: 1.6rem;
-    font-weight: 700;
     min-width: 0;
     min-height: 0;
-    padding: 0.85rem 1rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    color: var(--textColour);
+    font-size: 1.55rem;
+    font-weight: 700;
     letter-spacing: 0.04em;
     line-height: 1;
-    border-radius: 999px;
     transition:
         transform 0.25s ease,
         color 0.25s ease,
-        background-color 0.25s ease;
+        background-color 0.25s ease,
+        border-color 0.25s ease;
 }
 
 .logo a:hover {
@@ -55,20 +62,48 @@ header.headerExpanded {
 
 .nav-links {
     display: flex;
-    text-align: right;
-    gap: 1rem;
     align-items: center;
+    justify-content: flex-end;
+    gap: 0.7rem;
+    margin-left: auto;
+}
+
+.nav-linksIntro {
+    display: none;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: var(--textColour);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
     padding: 0.85rem 1rem;
     border-radius: 999px;
+    color: var(--textColour);
+    border: 1px solid transparent;
     transition:
         color 0.25s ease,
         background-color 0.25s ease,
-        transform 0.25s ease;
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.navLinkCopy {
+    display: flex;
+    align-items: center;
+}
+
+.navLinkLabel {
+    font-weight: 600;
+}
+
+.navLinkMeta {
+    display: none;
+}
+
+.nav-links a::after {
+    display: none;
 }
 
 .nav-links a[aria-current="page"] {
@@ -79,9 +114,15 @@ header.headerExpanded {
         135,
         0.08
     );
+    border-color: rgba(
+        33,
+        72,
+        135,
+        0.12
+    );
 }
 
-header a:hover {
+:is(.logo a, .nav-links a):hover {
     color: var(--themeColour);
     background: rgba(
         33,
@@ -89,10 +130,16 @@ header a:hover {
         135,
         0.08
     );
+    border-color: rgba(
+        33,
+        72,
+        135,
+        0.12
+    );
     transform: translateY(-1px);
 }
 
-header a:focus-visible,
+:is(.logo a, .nav-links a):focus-visible,
 .menuToggle:focus-visible {
     color: var(--themeColour);
     background: rgba(
@@ -103,75 +150,305 @@ header a:focus-visible,
     );
 }
 
-/* ===== Mobile Styling ===== */
-.menuToggle {
+.menuToggle,
+.menuBackdrop {
     display: none;
-    font-size: 2rem;
+}
+
+.menuToggle {
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 52px;
+    padding: 0.55rem 0.8rem 0.55rem
+        1rem;
+    border-radius: 999px;
+    border: 1px solid
+        var(--panelBorder);
     background: rgba(
         33,
         72,
         135,
         0.08
     );
-    border: none;
     color: var(--textColour);
-    width: 52px;
-    height: 52px;
-    border-radius: 16px;
-    padding: 0;
     cursor: pointer;
     transition:
         transform 0.3s ease,
-        background-color 0.3s ease;
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.menuToggle.rotated {
-    transform: rotate(90deg);
+.menuToggleText {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.menuToggleIcon {
+    position: relative;
+    width: 18px;
+    height: 14px;
+    display: block;
+    flex: 0 0 auto;
+}
+
+.menuToggleIcon span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition:
+        transform 0.25s ease,
+        opacity 0.2s ease,
+        top 0.25s ease;
+}
+
+.menuToggleIcon span:nth-child(1) {
+    top: 0;
+}
+
+.menuToggleIcon span:nth-child(2) {
+    top: 6px;
+}
+
+.menuToggleIcon span:nth-child(3) {
+    top: 12px;
+}
+
+.menuToggle.isOpen {
+    box-shadow: 0 16px 30px
+        rgba(15, 23, 42, 0.12);
+}
+
+.menuToggle.isOpen .menuToggleIcon span:nth-child(1) {
+    top: 6px;
+    transform: rotate(45deg);
+}
+
+.menuToggle.isOpen .menuToggleIcon span:nth-child(2) {
+    opacity: 0;
+}
+
+.menuToggle.isOpen .menuToggleIcon span:nth-child(3) {
+    top: 6px;
+    transform: rotate(-45deg);
 }
 
 @media (max-width: 767px) {
+    body.menuOpen {
+        overflow: hidden;
+    }
+
     header {
-        padding: 0 1rem;
+        padding: 0.7rem 1rem;
+        backdrop-filter: none;
+    }
+
+    .logo a {
+        padding: 0.8rem 1rem;
+        background: rgba(
+            33,
+            72,
+            135,
+            0.06
+        );
+        border-color: rgba(
+            33,
+            72,
+            135,
+            0.1
+        );
     }
 
     .menuToggle {
+        display: inline-flex;
+        position: relative;
+        z-index: 1001;
+        margin-left: auto;
+    }
+
+    .menuBackdrop {
+        position: fixed;
+        inset: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: var(
+            --headerBackdrop
+        );
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 998;
+    }
+
+    .menuBackdrop.show {
         display: block;
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .nav-links {
-        flex-direction: column;
-        align-items: center;
-        background: linear-gradient(
-            180deg,
-            var(--headerMenuBackground),
-            var(--headerBackground)
-        );
-        overflow: hidden;
-        max-height: 0;
-        transform: translateY(-10px);
-        transition: max-height 0.4s ease,
-            transform 0.4s ease;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
+        position: fixed;
+        top: 5.25rem;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
         z-index: 999;
-        opacity: 1;
-        box-shadow: 0 18px 36px
-            rgba(15, 23, 42, 0.1);
+        margin-left: 0;
+        display: grid;
+        grid-template-columns: minmax(
+            0,
+            1fr
+        );
+        align-content: start;
+        gap: 0.75rem;
+        padding: 1.1rem;
+        border: 1px solid
+            var(--panelBorder);
+        border-radius: 28px;
+        background:
+            linear-gradient(
+                180deg,
+                var(
+                    --headerPanelSurface
+                ),
+                var(
+                    --headerMenuBackground
+                )
+            ),
+            radial-gradient(
+                circle at top right,
+                rgba(
+                    33,
+                    72,
+                    135,
+                    0.22
+                ),
+                transparent 42%
+            );
+        box-shadow: 0 28px 60px
+            rgba(15, 23, 42, 0.22);
+        overflow: auto;
+        transform: translateY(-0.75rem)
+            scale(0.98);
+        transform-origin: top center;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+            transform 0.3s ease,
+            opacity 0.25s ease;
     }
 
     .nav-links.show {
-        max-height: 600px;
-        transform: translateY(10px);
-        border-bottom: 1px solid
-            var(--panelBorder);
+        opacity: 1;
+        transform: translateY(0)
+            scale(1);
+        pointer-events: auto;
+    }
+
+    .nav-linksIntro {
+        display: grid;
+        gap: 0.3rem;
+        padding: 0.2rem 0.2rem 0.55rem;
+    }
+
+    .navLinksEyebrow,
+    .navLinksTitle {
+        margin: 0;
+    }
+
+    .navLinksEyebrow {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--themeColourSoft);
+    }
+
+    .navLinksTitle {
+        font-size: 1.1rem;
+        font-weight: 600;
+        line-height: 1.35;
     }
 
     .nav-links a {
         width: 100%;
-        text-align: center;
-        padding: 1rem 0;
-        border-radius: 0;
+        min-height: 78px;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 0.9rem;
+        padding: 1rem 1.05rem;
+        border-radius: 22px;
+        border-color: var(
+            --headerPanelCardBorder
+        );
+        background: linear-gradient(
+            180deg,
+            var(--headerPanelCard),
+            rgba(33, 72, 135, 0.03)
+        );
+        box-shadow: 0 12px 28px
+            rgba(15, 23, 42, 0.08);
+    }
+
+    .nav-links a::after {
+        content: "";
+        display: block;
+        width: 0.7rem;
+        height: 0.7rem;
+        margin-top: 0.7rem;
+        flex: 0 0 auto;
+        border-top: 2px solid
+            currentColor;
+        border-right: 2px solid
+            currentColor;
+        transform: rotate(45deg);
+        opacity: 0.45;
+    }
+
+    .navLinkCopy {
+        display: grid;
+        gap: 0.25rem;
+        text-align: left;
+    }
+
+    .navLinkLabel {
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+
+    .navLinkMeta {
+        display: block;
+        color: var(--textColourMid);
+        font-size: 0.88rem;
+        line-height: 1.45;
+    }
+
+    .nav-links a[aria-current="page"] {
+        background: linear-gradient(
+            180deg,
+            rgba(33, 72, 135, 0.2),
+            rgba(33, 72, 135, 0.08)
+        );
+        border-color: rgba(
+            33,
+            72,
+            135,
+            0.28
+        );
+        box-shadow: 0 18px 36px
+            rgba(33, 72, 135, 0.14);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 36px
+            rgba(15, 23, 42, 0.12);
     }
 }

@@ -2,72 +2,231 @@ const menuToggle =
     document.getElementById(
         "menuToggle"
     );
+const menuToggleLabel =
+    document.getElementById(
+        "menuToggleLabel"
+    );
+const menuBackdrop =
+    document.getElementById(
+        "menuBackdrop"
+    );
 const navLinks =
     document.getElementById("navLinks");
 const header =
     document.getElementById("header");
 
-if (menuToggle && navLinks && header) {
+if (
+    menuToggle &&
+    navLinks &&
+    header &&
+    menuBackdrop
+) {
     const mobileMedia =
         window.matchMedia(
             "(max-width: 767px)"
         );
+    const focusableSelector =
+        [
+            "a[href]",
+            "button:not([disabled])",
+            "[tabindex]:not([tabindex='-1'])",
+        ].join(", ");
 
-    const setMenuState = (isOpen) => {
+    let lastFocusedElement = null;
+
+    const isMenuOpen = () =>
+        navLinks.classList.contains("show");
+
+    const getFocusableElements =
+        () =>
+            [
+                menuToggle,
+                ...navLinks.querySelectorAll(
+                    focusableSelector
+                ),
+            ].filter(
+                (element) =>
+                    !element.hasAttribute(
+                        "disabled"
+                    ) &&
+                    !element.closest("[hidden]")
+            );
+
+    const updateMenuButtonCopy =
+        (isOpen) => {
+            if (!menuToggleLabel) {
+                return;
+            }
+
+            menuToggleLabel.textContent =
+                isOpen
+                    ? "Close"
+                    : "Menu";
+        };
+
+    const setMenuState = (
+        isOpen,
+        options = {}
+    ) => {
+        const {
+            moveFocus = false,
+            restoreFocus = true,
+        } = options;
+        const isMobile =
+            mobileMedia.matches;
+        const shouldOpen =
+            isMobile && isOpen;
+
+        if (
+            shouldOpen &&
+            restoreFocus &&
+            document.activeElement instanceof
+                HTMLElement
+        ) {
+            lastFocusedElement =
+                document.activeElement;
+        }
+
         navLinks.classList.toggle(
             "show",
-            isOpen
+            shouldOpen
         );
         navLinks.hidden =
-            mobileMedia.matches && !isOpen;
+            isMobile && !shouldOpen;
+
+        menuBackdrop.classList.toggle(
+            "show",
+            shouldOpen
+        );
+        menuBackdrop.hidden =
+            !shouldOpen;
+
         menuToggle.classList.toggle(
-            "rotated",
-            isOpen
+            "isOpen",
+            shouldOpen
         );
         header.classList.toggle(
             "headerExpanded",
-            isOpen
+            shouldOpen
         );
+        document.body.classList.toggle(
+            "menuOpen",
+            shouldOpen
+        );
+
         menuToggle.setAttribute(
             "aria-expanded",
-            String(isOpen)
+            String(shouldOpen)
         );
         menuToggle.setAttribute(
             "aria-label",
-            isOpen
+            shouldOpen
                 ? "Close navigation menu"
                 : "Open navigation menu"
         );
-    };
+        updateMenuButtonCopy(
+            shouldOpen
+        );
 
-    const syncMenuForViewport = () => {
-        if (!mobileMedia.matches) {
-            navLinks.hidden = false;
-            setMenuState(false);
+        if (!shouldOpen) {
+            if (
+                restoreFocus &&
+                lastFocusedElement &&
+                lastFocusedElement.isConnected
+            ) {
+                const focusTarget =
+                    lastFocusedElement;
+                lastFocusedElement =
+                    null;
+                requestAnimationFrame(
+                    () => {
+                        focusTarget.focus();
+                    }
+                );
+                return;
+            }
+
+            lastFocusedElement = null;
             return;
         }
 
-        if (!navLinks.classList.contains("show")) {
-            navLinks.hidden = true;
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open navigation menu"
-            );
+        if (!moveFocus) {
+            return;
         }
+
+        requestAnimationFrame(() => {
+            const focusableElements =
+                getFocusableElements();
+            const firstNavLink =
+                focusableElements.find(
+                    (element) =>
+                        element !== menuToggle
+                );
+
+            (
+                firstNavLink ||
+                menuToggle
+            ).focus();
+        });
     };
+
+    const syncMenuForViewport =
+        () => {
+            if (!mobileMedia.matches) {
+                setMenuState(false, {
+                    restoreFocus: false,
+                });
+                navLinks.hidden = false;
+                return;
+            }
+
+            if (!isMenuOpen()) {
+                navLinks.hidden = true;
+                menuBackdrop.hidden =
+                    true;
+                menuBackdrop.classList.remove(
+                    "show"
+                );
+                menuToggle.classList.remove(
+                    "isOpen"
+                );
+                header.classList.remove(
+                    "headerExpanded"
+                );
+                document.body.classList.remove(
+                    "menuOpen"
+                );
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
+                updateMenuButtonCopy(
+                    false
+                );
+            }
+        };
 
     menuToggle.addEventListener(
         "click",
         () => {
             setMenuState(
-                !navLinks.classList.contains(
-                    "show"
-                )
+                !isMenuOpen(),
+                {
+                    moveFocus: true,
+                }
             );
+        }
+    );
+
+    menuBackdrop.addEventListener(
+        "click",
+        () => {
+            setMenuState(false);
+            menuToggle.focus();
         }
     );
 
@@ -80,7 +239,12 @@ if (menuToggle && navLinks && header) {
                     if (
                         mobileMedia.matches
                     ) {
-                        setMenuState(false);
+                        setMenuState(
+                            false,
+                            {
+                                restoreFocus: false,
+                            }
+                        );
                     }
                 }
             );
@@ -90,13 +254,57 @@ if (menuToggle && navLinks && header) {
         "keydown",
         (event) => {
             if (
-                event.key === "Escape" &&
-                navLinks.classList.contains(
-                    "show"
-                )
+                !mobileMedia.matches ||
+                !isMenuOpen()
             ) {
-                setMenuState(false);
+                return;
+            }
+
+            if (
+                event.key === "Escape"
+            ) {
+                setMenuState(false, {
+                    restoreFocus: false,
+                });
                 menuToggle.focus();
+                return;
+            }
+
+            if (event.key !== "Tab") {
+                return;
+            }
+
+            const focusableElements =
+                getFocusableElements();
+            if (
+                focusableElements.length ===
+                0
+            ) {
+                return;
+            }
+
+            const firstElement =
+                focusableElements[0];
+            const lastElement =
+                focusableElements[
+                    focusableElements.length -
+                        1
+                ];
+
+            if (
+                event.shiftKey &&
+                document.activeElement ===
+                    firstElement
+            ) {
+                event.preventDefault();
+                lastElement.focus();
+            } else if (
+                !event.shiftKey &&
+                document.activeElement ===
+                    lastElement
+            ) {
+                event.preventDefault();
+                firstElement.focus();
             }
         }
     );

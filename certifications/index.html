@@ -92,28 +92,65 @@
                     aria-expanded="false"
                     aria-label="Open navigation menu"
                 >
-                    &#9776;
+                    <span class="menuToggleText" id="menuToggleLabel">Menu</span>
+                    <span class="menuToggleIcon" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+                <button
+                    class="menuBackdrop"
+                    id="menuBackdrop"
+                    type="button"
+                    aria-label="Close navigation menu"
+                    hidden
+                >
                 </button>
                 <nav
                     class="nav-links"
                     id="navLinks"
                     aria-label="Primary navigation"
                 >
+                    <div class="nav-linksIntro">
+                        <p class="navLinksEyebrow">Navigation</p>
+                        <p class="navLinksTitle">Choose a section</p>
+                    </div>
                 <a href="/projects"
-                    >Projects</a
                 >
+                    <span class="navLinkCopy">
+                        <span class="navLinkLabel">Projects</span>
+                        <span class="navLinkMeta">Selected builds, case studies, and shipped work</span>
+                    </span>
+                </a>
                 <a href="/certifications" aria-current="page"
-                    >Certifications</a
                 >
+                    <span class="navLinkCopy">
+                        <span class="navLinkLabel">Certifications</span>
+                        <span class="navLinkMeta">Professional learning and accredited achievements</span>
+                    </span>
+                </a>
                 <a href="/cv"
-                    >CV</a
                 >
+                    <span class="navLinkCopy">
+                        <span class="navLinkLabel">CV</span>
+                        <span class="navLinkMeta">Experience, education, and a downloadable resume</span>
+                    </span>
+                </a>
                 <a href="/interests/"
-                    >Interests</a
                 >
+                    <span class="navLinkCopy">
+                        <span class="navLinkLabel">Interests</span>
+                        <span class="navLinkMeta">The topics, hobbies, and ideas behind the work</span>
+                    </span>
+                </a>
                 <a href="/contact"
-                    >Contact</a
                 >
+                    <span class="navLinkCopy">
+                        <span class="navLinkLabel">Contact</span>
+                        <span class="navLinkMeta">Ways to get in touch and start a conversation</span>
+                    </span>
+                </a>
                 </nav>
             </header>
         <main
