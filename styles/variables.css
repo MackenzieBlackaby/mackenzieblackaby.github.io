@@ -58,10 +58,10 @@
             0.96
         );
         --headerPanelCard: rgba(
-            255,
-            255,
-            255,
-            0.05
+            28,
+            39,
+            53,
+            0.96
         );
         --headerPanelCardBorder: rgba(
             255,
@@ -133,7 +133,7 @@
             255,
             255,
             255,
-            0.82
+            0.96
         );
         --headerPanelCardBorder: rgba(
             33,
