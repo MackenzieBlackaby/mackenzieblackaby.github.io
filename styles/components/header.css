@@ -12,9 +12,8 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: var(
-        --headerBackground
-    );
+    background: var(--headerBackground);
+    -webkit-backdrop-filter: blur(18px);
     backdrop-filter: blur(18px);
     box-shadow: 0 10px 24px
         rgba(15, 23, 42, 0.04);
@@ -108,12 +107,7 @@ header.headerExpanded {
 
 .nav-links a[aria-current="page"] {
     color: var(--themeColour);
-    background: rgba(
-        33,
-        72,
-        135,
-        0.08
-    );
+    background: rgba(33, 72, 135, 0.08);
     border-color: rgba(
         33,
         72,
@@ -124,12 +118,7 @@ header.headerExpanded {
 
 :is(.logo a, .nav-links a):hover {
     color: var(--themeColour);
-    background: rgba(
-        33,
-        72,
-        135,
-        0.08
-    );
+    background: rgba(33, 72, 135, 0.08);
     border-color: rgba(
         33,
         72,
@@ -139,15 +128,13 @@ header.headerExpanded {
     transform: translateY(-1px);
 }
 
-:is(.logo a, .nav-links a):focus-visible,
+:is(
+    .logo a,
+    .nav-links a
+):focus-visible,
 .menuToggle:focus-visible {
     color: var(--themeColour);
-    background: rgba(
-        33,
-        72,
-        135,
-        0.12
-    );
+    background: rgba(33, 72, 135, 0.12);
 }
 
 .menuToggle,
@@ -159,17 +146,10 @@ header.headerExpanded {
     align-items: center;
     gap: 0.75rem;
     min-height: 52px;
-    padding: 0.55rem 0.8rem 0.55rem
-        1rem;
+    padding: 0.55rem 0.8rem 0.55rem 1rem;
     border-radius: 999px;
-    border: 1px solid
-        var(--panelBorder);
-    background: rgba(
-        33,
-        72,
-        135,
-        0.08
-    );
+    border: 1px solid var(--panelBorder);
+    background: rgba(33, 72, 135, 0.08);
     color: var(--textColour);
     cursor: pointer;
     transition:
@@ -223,16 +203,22 @@ header.headerExpanded {
         rgba(15, 23, 42, 0.12);
 }
 
-.menuToggle.isOpen .menuToggleIcon span:nth-child(1) {
+.menuToggle.isOpen
+    .menuToggleIcon
+    span:nth-child(1) {
     top: 6px;
     transform: rotate(45deg);
 }
 
-.menuToggle.isOpen .menuToggleIcon span:nth-child(2) {
+.menuToggle.isOpen
+    .menuToggleIcon
+    span:nth-child(2) {
     opacity: 0;
 }
 
-.menuToggle.isOpen .menuToggleIcon span:nth-child(3) {
+.menuToggle.isOpen
+    .menuToggleIcon
+    span:nth-child(3) {
     top: 6px;
     transform: rotate(-45deg);
 }
@@ -244,6 +230,7 @@ header.headerExpanded {
 
     header {
         padding: 0.7rem 1rem;
+        -webkit-backdrop-filter: none;
         backdrop-filter: none;
     }
 
@@ -278,6 +265,9 @@ header.headerExpanded {
         border: 0;
         background: var(
             --headerBackdrop
+        );
+        -webkit-backdrop-filter: blur(
+            10px
         );
         backdrop-filter: blur(10px);
         opacity: 0;
@@ -320,12 +310,7 @@ header.headerExpanded {
             ),
             radial-gradient(
                 circle at top right,
-                rgba(
-                    33,
-                    72,
-                    135,
-                    0.22
-                ),
+                rgba(33, 72, 135, 0.22),
                 transparent 42%
             );
         box-shadow: 0 28px 60px
@@ -385,6 +370,9 @@ header.headerExpanded {
         );
         background: var(
             --headerPanelCard
+        );
+        -webkit-backdrop-filter: blur(
+            10px
         );
         backdrop-filter: blur(10px);
         box-shadow: 0 12px 28px

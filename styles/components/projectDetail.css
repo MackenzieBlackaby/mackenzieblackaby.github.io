@@ -278,6 +278,7 @@
     place-items: center;
     padding: 28px;
     min-height: 270px;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
