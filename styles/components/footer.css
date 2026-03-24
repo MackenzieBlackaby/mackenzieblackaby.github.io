@@ -8,7 +8,14 @@ footer {
         var(--backgroundColourMid);
     margin: 0px;
     margin-top: auto;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem
+        calc(
+            2rem +
+                env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+        );
     text-align: center;
     font-size: 0.85rem;
     bottom: 0;

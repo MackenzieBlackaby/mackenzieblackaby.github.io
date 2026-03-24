@@ -8,6 +8,25 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
+    background:
+        radial-gradient(
+            circle at top left,
+            var(--pageGlowStrong),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 12%,
+            var(--pageGlowSoft),
+            transparent 24%
+        ),
+        linear-gradient(
+            180deg,
+            var(--backgroundColour) 0%,
+            var(--backgroundColourMid) 100%
+        );
+    background-color: var(
+        --backgroundColour
+    );
 }
 
 body {
@@ -28,6 +47,9 @@ body {
             var(--backgroundColour) 0%,
             var(--backgroundColourMid) 100%
         );
+    background-color: var(
+        --backgroundColour
+    );
     color: var(--textColour);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -46,6 +68,7 @@ body {
 body {
     min-height: 100vh;
     min-height: 100svh;
+    min-height: 100dvh;
 }
 
 .mainPageContent {
