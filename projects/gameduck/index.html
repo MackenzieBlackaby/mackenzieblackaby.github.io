@@ -5,6 +5,7 @@
         <meta charset="UTF-8" />
         <meta
             name="viewport"
+            name="viewport"
             content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
         <meta
@@ -23,7 +24,7 @@
         />
         <meta
             property="og:description"
-            content="GameDuck is a Java desktop Game Boy and Game Boy Color emulator by Mackenzie Blackaby, featuring save-state management, ROM library tools, theme customisation, and a portable Windows release."
+            content="GameDuck is a Java desktop Game Boy and Game Boy Color emulator featuring cheat support, a modern UI, dark mode, and a portable Windows release."
         />
         <meta
             property="og:image"
@@ -47,7 +48,7 @@
         />
         <meta
             name="twitter:description"
-            content="GameDuck is a Java desktop Game Boy and Game Boy Color emulator by Mackenzie Blackaby, featuring save-state management, ROM library tools, theme customisation, and a portable Windows release."
+            content="GameDuck is a Java desktop Game Boy and Game Boy Color emulator featuring cheat support, a modern UI, dark mode, and a portable Windows release."
         />
         <meta
             name="twitter:image"
@@ -76,7 +77,6 @@
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
             rel="stylesheet"
         />
-
     </head>
     <script
         async
@@ -90,79 +90,157 @@
         >
             Skip to content
         </a>
-            <header id="header">
-                <div class="logo">
-                    <a href="/" aria-label="Home">MB</a>
+        <header id="header">
+            <div class="logo">
+                <a
+                    href="/"
+                    aria-label="Home"
+                    >MB</a
+                >
+            </div>
+            <button
+                class="menuToggle"
+                id="menuToggle"
+                type="button"
+                aria-controls="navLinks"
+                aria-expanded="false"
+                aria-label="Open navigation menu"
+            >
+                <span
+                    class="menuToggleText"
+                    id="menuToggleLabel"
+                    >Menu</span
+                >
+                <span
+                    class="menuToggleIcon"
+                    aria-hidden="true"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+            <button
+                class="menuBackdrop"
+                id="menuBackdrop"
+                type="button"
+                aria-label="Close navigation menu"
+                hidden
+            ></button>
+            <nav
+                class="nav-links"
+                id="navLinks"
+                aria-label="Primary navigation"
+            >
+                <div
+                    class="nav-linksIntro"
+                >
+                    <p
+                        class="navLinksEyebrow"
+                    >
+                        Navigation
+                    </p>
+                    <p
+                        class="navLinksTitle"
+                    >
+                        Choose a section
+                    </p>
                 </div>
-                <button
-                    class="menuToggle"
-                    id="menuToggle"
-                    type="button"
-                    aria-controls="navLinks"
-                    aria-expanded="false"
-                    aria-label="Open navigation menu"
+                <a
+                    href="/projects"
+                    aria-current="page"
                 >
-                    <span class="menuToggleText" id="menuToggleLabel">Menu</span>
-                    <span class="menuToggleIcon" aria-hidden="true">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
-                </button>
-                <button
-                    class="menuBackdrop"
-                    id="menuBackdrop"
-                    type="button"
-                    aria-label="Close navigation menu"
-                    hidden
-                >
-                </button>
-                <nav
-                    class="nav-links"
-                    id="navLinks"
-                    aria-label="Primary navigation"
-                >
-                    <div class="nav-linksIntro">
-                        <p class="navLinksEyebrow">Navigation</p>
-                        <p class="navLinksTitle">Choose a section</p>
-                    </div>
-                <a href="/projects" aria-current="page"
-                >
-                    <span class="navLinkCopy">
-                        <span class="navLinkLabel">Projects</span>
-                        <span class="navLinkMeta">Selected builds, case studies, and shipped work</span>
+                    <span
+                        class="navLinkCopy"
+                    >
+                        <span
+                            class="navLinkLabel"
+                            >Projects</span
+                        >
+                        <span
+                            class="navLinkMeta"
+                            >Selected
+                            builds, case
+                            studies, and
+                            shipped
+                            work</span
+                        >
                     </span>
                 </a>
-                <a href="/certifications"
+                <a
+                    href="/certifications"
                 >
-                    <span class="navLinkCopy">
-                        <span class="navLinkLabel">Certifications</span>
-                        <span class="navLinkMeta">Professional learning and accredited achievements</span>
+                    <span
+                        class="navLinkCopy"
+                    >
+                        <span
+                            class="navLinkLabel"
+                            >Certifications</span
+                        >
+                        <span
+                            class="navLinkMeta"
+                            >Professional
+                            learning and
+                            accredited
+                            achievements</span
+                        >
                     </span>
                 </a>
-                <a href="/cv"
-                >
-                    <span class="navLinkCopy">
-                        <span class="navLinkLabel">CV</span>
-                        <span class="navLinkMeta">Experience, education, and a downloadable resume</span>
+                <a href="/cv">
+                    <span
+                        class="navLinkCopy"
+                    >
+                        <span
+                            class="navLinkLabel"
+                            >CV</span
+                        >
+                        <span
+                            class="navLinkMeta"
+                            >Experience,
+                            education,
+                            and a
+                            downloadable
+                            resume</span
+                        >
                     </span>
                 </a>
-                <a href="/interests/"
-                >
-                    <span class="navLinkCopy">
-                        <span class="navLinkLabel">Interests</span>
-                        <span class="navLinkMeta">The topics, hobbies, and ideas behind the work</span>
+                <a href="/interests/">
+                    <span
+                        class="navLinkCopy"
+                    >
+                        <span
+                            class="navLinkLabel"
+                            >Interests</span
+                        >
+                        <span
+                            class="navLinkMeta"
+                            >The topics,
+                            hobbies, and
+                            ideas behind
+                            the
+                            work</span
+                        >
                     </span>
                 </a>
-                <a href="/contact"
-                >
-                    <span class="navLinkCopy">
-                        <span class="navLinkLabel">Contact</span>
-                        <span class="navLinkMeta">Ways to get in touch and start a conversation</span>
+                <a href="/contact">
+                    <span
+                        class="navLinkCopy"
+                    >
+                        <span
+                            class="navLinkLabel"
+                            >Contact</span
+                        >
+                        <span
+                            class="navLinkMeta"
+                            >Ways to get
+                            in touch and
+                            start a
+                            conversation</span
+                        >
                     </span>
                 </a>
-                </nav>
-            </header>
+            </nav>
+        </header>
         <main
             id="main-content"
             class="mainPageContent"
@@ -172,63 +250,128 @@
                 class="contentCard fadeIn projectHero instant"
             >
                 <div>
-                    <p class="projectSectionEyebrow">
-                        Java desktop emulator
+                    <p
+                        class="projectSectionEyebrow"
+                    >
+                        Java desktop
+                        emulator
                     </p>
-                    <h1 class="projectHeroTitle">
+                    <h1
+                        class="projectHeroTitle"
+                    >
                         GameDuck
                     </h1>
-                    <p class="projectHeroLead">
-                        GameDuck is a desktop
-                        Game Boy and Game Boy
-                        Color emulation suite
-                        written in Java with a
-                        Swing frontend. It began
-                        as my final-year project
-                        at Lancaster University
-                        and has grown into a
-                        feature-rich emulator
-                        focused on portability,
-                        library management,
-                        customisation, and a
-                        straightforward desktop
-                        experience.
+                    <p
+                        class="projectHeroLead"
+                    >
+                        GameDuck is a
+                        desktop Game Boy
+                        and Game Boy
+                        Color emulation
+                        suite written in
+                        Java with a
+                        modern Swing
+                        frontend. The
+                        v0.3.0 major
+                        update
+                        introduces cheat
+                        support, a
+                        complete UI
+                        redesign, native
+                        dark mode, and
+                        significant
+                        stability
+                        enhancements.
                     </p>
-                    <div class="projectMetaGrid">
-                        <div class="projectMetaCard">
-                            <span class="projectMetaLabel">Built in</span>
-                            <span class="projectMetaValue">2024-2025</span>
+                    <div
+                        class="projectMetaGrid"
+                    >
+                        <div
+                            class="projectMetaCard"
+                        >
+                            <span
+                                class="projectMetaLabel"
+                                >Built
+                                in</span
+                            >
+                            <span
+                                class="projectMetaValue"
+                                >2024-2026</span
+                            >
                         </div>
-                        <div class="projectMetaCard">
-                            <span class="projectMetaLabel">Status</span>
-                            <span class="projectMetaValue">Public alpha</span>
+                        <div
+                            class="projectMetaCard"
+                        >
+                            <span
+                                class="projectMetaLabel"
+                                >Status</span
+                            >
+                            <span
+                                class="projectMetaValue"
+                                >Public
+                                alpha</span
+                            >
                         </div>
-                        <div class="projectMetaCard">
-                            <span class="projectMetaLabel">Role</span>
-                            <span class="projectMetaValue">Solo developer</span>
+                        <div
+                            class="projectMetaCard"
+                        >
+                            <span
+                                class="projectMetaLabel"
+                                >Role</span
+                            >
+                            <span
+                                class="projectMetaValue"
+                                >Solo
+                                developer</span
+                            >
                         </div>
                     </div>
-                    <div class="projectHeroActions">
+                    <div
+                        class="projectHeroActions"
+                    >
                         <a
                             class="projectPillButton projectPillButtonPrimary"
-                            href="https://github.com/MackenzieBlackaby/gameduck/releases"
+                            href="https://github.com/MackenzieBlackaby/GameDuck/releases/tag/v0.3.0"
                         >
-                            Download Windows build
+                            Download
+                            v0.3.0-alpha
                         </a>
                         <a
                             class="projectPillButton projectPillButtonSecondary"
                             href="https://github.com/MackenzieBlackaby/gameduck"
                         >
-                            View source code
+                            View source
+                            code
                         </a>
                     </div>
-                    <div class="projectHeroMeta">
-                        <span class="projectHeroMetaItem">Latest public release: v0.1.0-alpha</span>
-                        <span class="projectHeroMetaItem">Targets Java 22 and Maven</span>
-                        <span class="projectHeroMetaItem">Supports Game Boy and Game Boy Color</span>
+                    <div
+                        class="projectHeroMeta"
+                    >
+                        <span
+                            class="projectHeroMetaItem"
+                            >Latest
+                            public
+                            release:
+                            v0.3.0-alpha</span
+                        >
+                        <span
+                            class="projectHeroMetaItem"
+                            >Targets
+                            Java 22 and
+                            Maven</span
+                        >
+                        <span
+                            class="projectHeroMetaItem"
+                            >Supports
+                            Game Boy and
+                            Game Boy
+                            Color</span
+                        >
                     </div>
                 </div>
-                <div class="projectHeroVisual">
+                <div
+                    class="projectHeroVisual"
+                >
                     <div
                         class="projectDetailCard projectDetailCardGlass projectHeroMediaCard"
                     >
@@ -244,19 +387,35 @@
                     <div
                         class="projectDetailCard projectDetailCardGlass projectHeroInfoCard"
                     >
-                        <p class="projectSectionEyebrow">
-                            Release focus
+                        <p
+                            class="projectSectionEyebrow"
+                        >
+                            Release
+                            focus
                         </p>
-                        <h2>Portable and practical</h2>
+                        <h2>
+                            Modern and
+                            Feature-Rich
+                        </h2>
                         <p>
-                            The current packaged
-                            Windows release ships
-                            as a portable x64 build
-                            with its own bundled
-                            Java runtime, so it can
-                            be extracted and run
-                            without a separate Java
-                            installation.
+                            Version
+                            0.3.0 marks
+                            a shift
+                            towards a
+                            more modern
+                            user
+                            experience,
+                            bringing
+                            proper dark
+                            mode,
+                            integrated
+                            cheat
+                            support, and
+                            refined
+                            library
+                            tools to the
+                            desktop
+                            platform.
                         </p>
                     </div>
                 </div>
@@ -265,52 +424,87 @@
             <section
                 class="threeCol fadeIn projectThreeCol"
             >
-                <h2>Project Snapshot</h2>
-                <div class="threeColPanel">
+                <h2>
+                    Project Snapshot
+                </h2>
+                <div
+                    class="threeColPanel"
+                >
                     <div class="column">
-                        <span class="projectBadge"
+                        <span
+                            class="projectBadge"
                             >Stack</span
                         >
-                        <h3>Java 22 + Swing</h3>
+                        <h3>
+                            Java 22 +
+                            Swing
+                        </h3>
                         <p>
-                            GameDuck is built as a
-                            Java desktop
-                            application with a
-                            Swing-based frontend,
-                            which keeps it portable
-                            anywhere a JVM can run.
+                            GameDuck
+                            remains
+                            portable and
+                            lightweight,
+                            built with
+                            Java 22 and
+                            a
+                            custom-themed
+                            Swing UI
+                            that now
+                            supports
+                            advanced
+                            rendering
+                            effects.
                         </p>
                     </div>
                     <div class="column">
-                        <span class="projectBadge"
+                        <span
+                            class="projectBadge"
                             >Scope</span
                         >
-                        <h3>GB / GBC focused</h3>
+                        <h3>
+                            GB / GBC /
+                            ROM Hacks
+                        </h3>
                         <p>
-                            The suite targets
-                            original Game Boy and
-                            Game Boy Color
-                            software, including
-                            support for compatible
-                            patched ROMs and
-                            optional boot ROM
-                            workflows.
+                            Full support
+                            for original
+                            hardware
+                            software,
+                            with
+                            dedicated
+                            workflows
+                            for ROM
+                            hacks and
+                            real-time
+                            IPS
+                            patching.
                         </p>
                     </div>
                     <div class="column">
-                        <span class="projectBadge"
-                            >Current release</span
+                        <span
+                            class="projectBadge"
+                            >Current
+                            release</span
                         >
-                        <h3>v0.1.0-alpha</h3>
+                        <h3>
+                            v0.3.0-alpha
+                        </h3>
                         <p>
-                            The first public
-                            packaged release
-                            already includes the
-                            emulator core, desktop
-                            UI, save systems,
-                            library tooling, and
-                            bundled runtime for
-                            Windows x64.
+                            The latest
+                            build
+                            includes
+                            Cheat
+                            Support,
+                            Dark Mode,
+                            Frame
+                            Blending,
+                            and a
+                            redesigned
+                            Audio
+                            Enhancement
+                            suite using
+                            compact
+                            knobs.
                         </p>
                     </div>
                 </div>
@@ -319,93 +513,169 @@
             <section
                 class="contentCard fadeIn"
             >
-                <h2>
-                    Build Breakdown
-                </h2>
-                <div class="projectCardGrid">
-                    <article class="projectDetailCard">
-                        <span class="projectBadge">Why I built it</span>
+                <h2>Build Breakdown</h2>
+                <div
+                    class="projectCardGrid"
+                >
+                    <article
+                        class="projectDetailCard"
+                    >
+                        <span
+                            class="projectBadge"
+                            >Why I built
+                            it</span
+                        >
                         <h3>
-                            A dissertation project
-                            with room to grow
+                            Pushing the
+                            limits of
+                            Swing and
+                            Java
                         </h3>
                         <p>
-                            I built GameDuck as my
-                            final-year university
-                            project to explore
-                            low-level systems,
-                            emulator design, and
-                            desktop application
-                            architecture in a single
-                            ambitious codebase.
+                            Initially an
+                            academic
+                            project,
+                            GameDuck has
+                            evolved into
+                            a showcase
+                            for building
+                            highly
+                            performant,
+                            modern
+                            desktop
+                            applications
+                            using
+                            "legacy"
+                            Java
+                            technologies.
                         </p>
                     </article>
-                    <article class="projectDetailCard">
-                        <span class="projectBadge">Stack</span>
+                    <article
+                        class="projectDetailCard"
+                    >
+                        <span
+                            class="projectBadge"
+                            >Cheat
+                            Engine</span
+                        >
                         <h3>
-                            Java, Swing, Maven, and
-                            custom emulator logic
+                            Automated
+                            cheat
+                            downloads
+                            and
+                            management
                         </h3>
                         <p>
-                            The project combines a
-                            Java emulation core with
-                            a Swing desktop frontend,
-                            file-backed helpers,
-                            library tooling, and a
-                            packaged runtime for
-                            straightforward Windows
-                            distribution.
+                            The new
+                            cheat system
+                            allows users
+                            to fetch
+                            cheats for
+                            specific
+                            ROMs
+                            automatically,
+                            enabling
+                            real-time
+                            toggling and
+                            editing
+                            within the
+                            UI.
                         </p>
                     </article>
-                    <article class="projectDetailCard">
-                        <span class="projectBadge">Hard problems solved</span>
+                    <article
+                        class="projectDetailCard"
+                    >
+                        <span
+                            class="projectBadge"
+                            >Accuracy &
+                            Performance</span
+                        >
                         <h3>
-                            Bridging emulator
-                            accuracy with real UX
+                            Stable
+                            emulation
+                            with modern
+                            visuals
                         </h3>
                         <p>
-                            The difficult part was
-                            not only emulating the
-                            hardware model, but also
-                            turning that into a
-                            usable product with save
-                            states, ROM management,
-                            patch handling, settings,
-                            and desktop-friendly
-                            workflows.
+                            Version
+                            0.3.0 fixes
+                            long-standing
+                            issues with
+                            window
+                            maximizing,
+                            input lag,
+                            and audio
+                            stuttering,
+                            while
+                            introducing
+                            frame
+                            blending for
+                            smoother
+                            motion.
                         </p>
                     </article>
-                    <article class="projectDetailCard">
-                        <span class="projectBadge">Lessons learned</span>
+                    <article
+                        class="projectDetailCard"
+                    >
+                        <span
+                            class="projectBadge"
+                            >Lessons
+                            learned</span
+                        >
                         <h3>
-                            Systems work needs
-                            product thinking too
+                            User
+                            Experience
+                            is as vital
+                            as accuracy
                         </h3>
                         <p>
-                            GameDuck reinforced that
-                            technically interesting
-                            software still needs good
-                            tooling, clarity, and
-                            polish around it if you
-                            want other people to
-                            actually use it.
+                            Developing
+                            GameDuck
+                            proved that
+                            an emulator
+                            is only as
+                            good as its
+                            interface;
+                            modern
+                            expectations
+                            like Dark
+                            Mode and
+                            easy
+                            shortcuts
+                            are
+                            essential.
                         </p>
                     </article>
-                    <article class="projectDetailCard">
-                        <span class="projectBadge">What's next</span>
+                    <article
+                        class="projectDetailCard"
+                    >
+                        <span
+                            class="projectBadge"
+                            >What's
+                            next</span
+                        >
                         <h3>
-                            Compatibility and richer
-                            desktop features
+                            Hardware
+                            expansion
+                            and link
+                            cable
                         </h3>
                         <p>
-                            The roadmap points toward
-                            broader hardware support,
-                            UI refinement, migration
-                            tooling, and more
-                            advanced emulator
-                            features such as link
-                            cable workflows and
-                            graphical enhancements.
+                            The roadmap
+                            focuses on
+                            Super Game
+                            Boy support,
+                            internal
+                            link cable
+                            emulation,
+                            and
+                            identifying
+                            remaining
+                            sources of
+                            UI
+                            choppiness
+                            during
+                            high-load.
                         </p>
                     </article>
                 </div>
@@ -415,117 +685,150 @@
                 class="contentCard fadeIn"
             >
                 <h2>
-                    What GameDuck Includes
+                    What GameDuck
+                    Includes
                 </h2>
-                <div class="projectCardGrid">
-                    <article class="projectDetailCard">
-                        <span class="projectBadge"
+                <div
+                    class="projectCardGrid"
+                >
+                    <article
+                        class="projectDetailCard"
+                    >
+                        <span
+                            class="projectBadge"
                             >Emulation</span
                         >
                         <h3>
-                            Core support for classic
-                            handheld software
+                            Cheat
+                            Support &
+                            Frame
+                            Blending
                         </h3>
                         <p>
-                            GameDuck runs
-                            <code>.gb</code>,
-                            <code>.gbc</code>, and
-                            compatible patched ROMs
-                            through a dedicated
-                            desktop frontend rather
-                            than a barebones test
-                            harness.
+                            Beyond basic
+                            GB/GBC play,
+                            GameDuck now
+                            supports
+                            cheats, FPS
+                            counters,
+                            and frame
+                            blending to
+                            mimic
+                            classic
+                            screen
+                            ghosting.
                         </p>
                     </article>
-                    <article class="projectDetailCard">
-                        <span class="projectBadge"
-                            >ROM workflows</span
+                    <article
+                        class="projectDetailCard"
+                    >
+                        <span
+                            class="projectBadge"
+                            >UI /
+                            Design</span
                         >
                         <h3>
-                            IPS patch loading
-                            without editing the
-                            source ROM
+                            Modern UI
+                            with Native
+                            Dark Mode
                         </h3>
                         <p>
-                            ROM hacks can be
-                            launched by layering an
-                            IPS patch over a base
-                            ROM at runtime, so the
-                            original file stays
-                            untouched and save data
-                            can remain separate.
+                            A total
+                            visual
+                            overhaul
+                            brings a
+                            cleaner
+                            layout,
+                            better
+                            scaling for
+                            large icons,
+                            and a
+                            dedicated
+                            dark theme
+                            for users.
                         </p>
                     </article>
-                    <article class="projectDetailCard">
-                        <span class="projectBadge"
+                    <article
+                        class="projectDetailCard"
+                    >
+                        <span
+                            class="projectBadge"
                             >Library</span
                         >
                         <h3>
-                            Managed game library
-                            with metadata and art
+                            Persistent
+                            filtering
+                            and managed
+                            ROMs
                         </h3>
                         <p>
-                            The app copies played
-                            ROMs into a local
-                            library, supports
-                            favourites, and caches
-                            box art, title screens,
-                            and screenshots from
-                            libretro sources.
+                            The library
+                            now
+                            remembers
+                            your viewing
+                            preferences
+                            and supports
+                            one-click
+                            ROM hack
+                            loading with
+                            automatic
+                            metadata
+                            caching.
                         </p>
                     </article>
-                    <article class="projectDetailCard">
-                        <span class="projectBadge"
-                            >Persistence</span
+                    <article
+                        class="projectDetailCard"
+                    >
+                        <span
+                            class="projectBadge"
+                            >Input</span
                         >
                         <h3>
-                            Save data, quick saves,
-                            and numbered state slots
+                            Controller-mapped
+                            shortcuts
                         </h3>
                         <p>
-                            Compatible cartridges
-                            can use battery-backed
-                            save data, while managed
-                            quick saves and
-                            save-state slots make it
-                            easier to suspend and
-                            resume play.
+                            Application
+                            shortcuts
+                            (save, load,
+                            fast-forward)
+                            can now be
+                            mapped
+                            directly to
+                            controller
+                            buttons for
+                            a seamless
+                            couch-play
+                            experience.
                         </p>
                     </article>
-                    <article class="projectDetailCard">
-                        <span class="projectBadge"
-                            >Customisation</span
+                    <article
+                        class="projectDetailCard"
+                    >
+                        <span
+                            class="projectBadge"
+                            >Themes</span
                         >
                         <h3>
-                            Themes, palettes,
-                            controls, and shortcuts
+                            JSON Theme
+                            Storage &
+                            Quick
+                            Editing
                         </h3>
                         <p>
-                            Users can switch
-                            palettes, create custom
-                            colour presets, adjust
-                            themes, and configure
-                            both control mappings
-                            and application
-                            shortcuts.
-                        </p>
-                    </article>
-                    <article class="projectDetailCard">
-                        <span class="projectBadge"
-                            >Debugging</span
-                        >
-                        <h3>
-                            Boot ROM support and
-                            live serial output
-                        </h3>
-                        <p>
-                            If you have your own
-                            legal boot ROM dumps,
-                            GameDuck can use them
-                            and also exposes serial
-                            output plus on-disk
-                            debug logging for more
-                            technical workflows.
+                            Custom
+                            themes are
+                            now portable
+                            via JSON,
+                            and the UI
+                            includes
+                            clickable
+                            swatches for
+                            instant
+                            visual
+                            feedback
+                            during
+                            customization.
                         </p>
                     </article>
                 </div>
@@ -545,75 +848,124 @@
                         decoding="async"
                     />
                     <div>
-                        <p class="projectSectionEyebrow">
-                            Project context
+                        <p
+                            class="projectSectionEyebrow"
+                        >
+                            Project
+                            context
                         </p>
                         <h2>
-                            From dissertation
-                            project to emulator
-                            suite
+                            A
+                            Professional
+                            Desktop
+                            Suite
                         </h2>
                         <p>
-                            GameDuck started life as
-                            my final-year project at
-                            Lancaster University,
-                            but the repository now
-                            goes well beyond a basic
-                            academic prototype. It
-                            combines the emulator
-                            core, the desktop UI,
-                            persistence helpers,
-                            metadata handling, save
-                            management, boot ROM
-                            tooling, and UI
-                            customisation in one
-                            codebase.
+                            GameDuck has
+                            moved far
+                            beyond its
+                            dissertation
+                            roots. It is
+                            now a
+                            robust,
+                            packaged
+                            application
+                            that
+                            prioritizes
+                            user
+                            workflow—
+                            from library
+                            management
+                            and cheat
+                            integration
+                            to
+                            controller-first
+                            shortcuts
+                            and visual
+                            customization.
                         </p>
-                        <div class="projectMiniGrid">
-                            <article class="projectDetailCard">
+                        <div
+                            class="projectMiniGrid"
+                        >
+                            <article
+                                class="projectDetailCard"
+                            >
                                 <h3>
-                                    Desktop-first
-                                    design
+                                    Modern
+                                    Desktop
+                                    UX
                                 </h3>
                                 <p>
-                                    The project is
-                                    intentionally
-                                    structured around
-                                    an actual desktop
-                                    user experience,
-                                    not just emulation
-                                    correctness in
-                                    isolation.
+                                    The
+                                    v0.3.0
+                                    update
+                                    proves
+                                    that
+                                    Swing
+                                    can
+                                    deliver
+                                    a
+                                    premium
+                                    look
+                                    and
+                                    feel
+                                    when
+                                    paired
+                                    with
+                                    thoughtful
+                                    design.
                                 </p>
                             </article>
-                            <article class="projectDetailCard">
+                            <article
+                                class="projectDetailCard"
+                            >
                                 <h3>
-                                    Portable release
-                                    model
+                                    Portable
+                                    Release
+                                    Model
                                 </h3>
                                 <p>
-                                    The packaged
-                                    Windows build is
-                                    designed to be
-                                    easy to extract
-                                    and run with no
-                                    separate Java
-                                    dependency for the
-                                    end user.
+                                    Available
+                                    as a
+                                    standalone
+                                    x64
+                                    Windows
+                                    build
+                                    with
+                                    a
+                                    bundled
+                                    runtime—no
+                                    Java
+                                    install
+                                    required.
                                 </p>
                             </article>
-                            <article class="projectDetailCard">
+                            <article
+                                class="projectDetailCard"
+                            >
                                 <h3>
-                                    Personal branding
+                                    Identity
                                 </h3>
                                 <p>
-                                    The duck name and
-                                    logo are a nod to
+                                    The
+                                    duck
+                                    theme
+                                    remains
+                                    a
+                                    tribute
+                                    to
+                                    the
+                                    campus
+                                    life
+                                    at
                                     Lancaster
-                                    University and the
-                                    campus ducks that
-                                    inspired the
-                                    project identity.
+                                    University
+                                    where
+                                    the
+                                    core
+                                    logic
+                                    was
+                                    born.
                                 </p>
                             </article>
                         </div>
@@ -622,126 +974,93 @@
             </section>
 
             <section
-                class="contentCard fadeIn"
+                class="threeCol fadeIn projectThreeCol"
             >
                 <h2>
-                    Codebase Structure
+                    Roadmap Toward v1.0
                 </h2>
-                <div class="projectCardGrid">
-                    <article class="projectDetailCard">
-                        <h3>
-                            Backend / Emulation
-                        </h3>
-                        <p>
-                            The emulator core houses
-                            the CPU, instruction
-                            decoding, memory map,
-                            graphics pipeline,
-                            peripherals, timers,
-                            ROM loading, and mapper
-                            implementations.
-                        </p>
-                    </article>
-                    <article class="projectDetailCard">
-                        <h3>
-                            Backend / Helpers
-                        </h3>
-                        <p>
-                            This layer handles save
-                            data, quick states,
-                            library persistence,
-                            metadata caching,
-                            artwork fetching, and
-                            the file-backed tools
-                            that sit around the core
-                            emulator.
-                        </p>
-                    </article>
-                    <article class="projectDetailCard">
-                        <h3>Frontend</h3>
-                        <p>
-                            The Swing frontend owns
-                            the main window, display
-                            panel, menus, input
-                            routing, library browser,
-                            theme handling, and the
-                            overall desktop user
-                            flow.
-                        </p>
-                    </article>
-                    <article class="projectDetailCard">
-                        <h3>Runtime data</h3>
-                        <p>
-                            The app manages local
-                            folders for the ROM
-                            library, cartridge saves,
-                            quickstates, cached
-                            artwork, and generated
-                            docs, while settings and
-                            boot ROM storage live in
-                            the user profile.
-                        </p>
-                    </article>
-                </div>
-            </section>
-
-            <section class="threeCol fadeIn projectThreeCol">
-                <h2>Roadmap Toward v1.0</h2>
-                <div class="threeColPanel">
+                <div
+                    class="threeColPanel"
+                >
                     <div class="column">
-                        <span class="projectBadge"
-                            >Compatibility</span
+                        <span
+                            class="projectBadge"
+                            >Hardware</span
                         >
                         <h3>
-                            Hardware coverage
+                            SGB and GBA
+                            support
                         </h3>
                         <p>
-                            Planned work includes
-                            Super Game Boy support
-                            and fixes for effects
-                            that depended on the
-                            original hardware's
-                            screen ghosting.
+                            Implementation
+                            of SGB
+                            borders and
+                            hardware
+                            features to
+                            expand the
+                            library of
+                            compatible
+                            experiences,
+                            as well as
+                            GBA games to
+                            complete the
+                            suite.
                         </p>
                     </div>
                     <div class="column">
-                        <span class="projectBadge"
-                            >Usability</span
+                        <span
+                            class="projectBadge"
+                            >Optimization</span
                         >
                         <h3>
-                            Cleaner updates and UI
+                            Full
+                            Stability
                         </h3>
                         <p>
-                            The current roadmap also
-                            mentions ROM deletion
-                            from the library,
-                            library/config
-                            migration, and broader UI
-                            polish.
+                            Removing
+                            remaining
+                            choppiness
+                            when running
+                            the full
+                            suite of
+                            shaders,
+                            borders, and
+                            audio
+                            effects
+                            simultaneously.
                         </p>
                     </div>
                     <div class="column">
-                        <span class="projectBadge"
-                            >Advanced features</span
+                        <span
+                            class="projectBadge"
+                            >Connectivity</span
                         >
                         <h3>
-                            Link cable direction
+                            Dual
+                            Emulation
                         </h3>
                         <p>
-                            Longer-term goals include
-                            two simultaneous
-                            emulations with link
-                            cable support, dual
-                            controller input,
-                            shaders, and overlays.
+                            Enabling
+                            dual
+                            emulation
+                            instances
+                            with
+                            internal
+                            linking for
+                            multiplayer
+                            support and
+                            trading.
                         </p>
                     </div>
                 </div>
-                <p class="projectSectionNote">
-                    These roadmap sections are
-                    grouped from the current public
-                    repository plan so the page is
-                    easier to scan.
+                <p
+                    class="projectSectionNote"
+                >
+                    (The roadmap has
+                    been updated to
+                    reflect features
+                    recently moved to
+                    stable in v0.3.0.)
                 </p>
             </section>
 
@@ -749,65 +1068,128 @@
                 class="contentCard fadeIn"
             >
                 <h2>Important Notes</h2>
-                <div class="projectMiniGrid">
-                    <article class="projectDetailCard">
+                <div
+                    class="projectMiniGrid"
+                >
+                    <article
+                        class="projectDetailCard"
+                    >
                         <p>
-                            GameDuck does not ship
-                            with commercial ROMs or
-                            Nintendo boot ROM files.
+                            GameDuck
+                            does NOT
+                            ship with
+                            commercial
+                            ROMs or
+                            Nintendo
+                            boot ROM
+                            files.
                         </p>
                     </article>
-                    <article class="projectDetailCard">
+                    <article
+                        class="projectDetailCard"
+                    >
                         <p>
-                            Boot ROM support is
-                            available, but users need
-                            to supply their own legal
-                            dumps separately.
+                            Boot ROM
+                            support is
+                            available,
+                            but users
+                            need to
+                            supply their
+                            own legal
+                            dumps
+                            separately.
                         </p>
                     </article>
-                    <article class="projectDetailCard">
+                    <article
+                        class="projectDetailCard"
+                    >
                         <p>
-                            The project is a personal
-                            emulator suite and is not
-                            affiliated with Nintendo.
+                            The project
+                            is a
+                            personal
+                            emulator
+                            suite and is
+                            not
+                            affiliated
+                            with
+                            Nintendo,
+                            nor does it
+                            contain any
+                            copyright
+                            material.
                         </p>
                     </article>
                 </div>
-                <p class="projectLegalNote">
-                    The information on this page has
-                    been aligned with the public
-                    GameDuck repository and release
-                    notes so it reflects the current
-                    feature set rather than older
-                    placeholder copy.
+                <p
+                    class="projectLegalNote"
+                >
+                    Content aligned with
+                    GameDuck
+                    v0.3.0-alpha release
+                    notes (March 2026).
                 </p>
             </section>
-
         </main>
         <footer>
-            <div class="footerContactBand">
-                <p class="footerContactTitle">
+            <div
+                class="footerContactBand"
+            >
+                <p
+                    class="footerContactTitle"
+                >
                     Get in touch
                 </p>
-                <div class="footerContactLinks">
-                    <a href="/contact" class="footerContactLink">
-                <span>Email Me</span>
-                <small>Use the contact form</small>
+                <div
+                    class="footerContactLinks"
+                >
+                    <a
+                        href="/contact"
+                        class="footerContactLink"
+                    >
+                        <span
+                            >Email
+                            Me</span
+                        >
+                        <small
+                            >Use the
+                            contact
+                            form</small
+                        >
                     </a>
-                    <a href="https://www.linkedin.com/in/mackenzie-blackaby-884b16217/" target="_blank" rel="noopener noreferrer" class="footerContactLink">
-                <span>LinkedIn</span>
-                <small>Professional profile</small>
+                    <a
+                        href="https://www.linkedin.com/in/mackenzie-blackaby-884b16217/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footerContactLink"
+                    >
+                        <span
+                            >LinkedIn</span
+                        >
+                        <small
+                            >Professional
+                            profile</small
+                        >
                     </a>
-                    <a href="https://github.com/MackenzieBlackaby" target="_blank" rel="noopener noreferrer" class="footerContactLink">
-                <span>GitHub</span>
-                <small>Code and projects</small>
+                    <a
+                        href="https://github.com/MackenzieBlackaby"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footerContactLink"
+                    >
+                        <span
+                            >GitHub</span
+                        >
+                        <small
+                            >Code and
+                            projects</small
+                        >
                     </a>
                 </div>
             </div>
             <p>
-                &copy; 2023 Mackenzie
-                Blackaby. All rights
-                reserved.
+                &copy; 2023-2026
+                Mackenzie Blackaby. All
+                rights reserved.
             </p>
             <br />
             With hardship comes ease
@@ -817,4 +1199,3 @@
         <script src="/scripts/menuToggle.js"></script>
     </body>
 </html>
-
