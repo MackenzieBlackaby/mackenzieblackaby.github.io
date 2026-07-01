@@ -2,15 +2,15 @@ footer {
     background:
         linear-gradient(
             180deg,
-            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.06),
             transparent
         ),
         var(--backgroundColourMid);
-    margin: 0px;
+    margin: 0;
     margin-top: auto;
-    padding: 2rem 1rem
+    padding: 1.55rem 1rem
         calc(
-            2rem +
+            1.55rem +
                 env(
                     safe-area-inset-bottom,
                     0px
@@ -26,75 +26,128 @@ footer {
 }
 
 footer .footerContactBand {
-    width: min(100%, 1100px);
-    margin: 0 auto 1.5rem;
+    width: min(100%, 760px);
+    margin: 0 auto 1.35rem;
 }
 
 footer .footerContactTitle {
     color: var(--textColour);
-    font-size: 1rem;
-    font-weight: 700;
-    margin: 0 0 0.85rem;
+    font-size: 0.95rem;
+    font-weight: var(--fontWeightMedium);
+    margin: 0 0 0.75rem;
 }
 
 footer .footerContactLinks {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+    display: inline-grid;
+    grid-template-columns: repeat(
+        3,
+        minmax(140px, 1fr)
+    );
+    width: min(100%, 600px);
+    border: 1px solid var(--panelBorder);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    overflow: hidden;
 }
 
 footer .footerContactLink {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3px;
-    min-width: 160px;
-    padding: 0.85rem 1rem;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid
+    justify-content: center;
+    gap: 2px;
+    min-width: 0;
+    min-height: 54px;
+    padding: 0.72rem 1.2rem;
+    border-right: 1px solid
         var(--panelBorder);
+    background: transparent;
     color: var(--textColour);
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
+        color 0.25s ease,
         background-color 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.25s ease;
+}
+
+footer .footerContactLink:last-child {
+    border-right: 0;
 }
 
 footer .footerContactLink span {
-    font-weight: 700;
+    font-weight: var(--fontWeightMedium);
 }
 
 footer .footerContactLink small {
     color: var(--textColourMid);
-    font-size: 0.82rem;
+    font-size: 0.78rem;
+    line-height: 1.25;
 }
 
 footer .footerContactLink:hover,
 footer .footerContactLink:focus-visible {
-    transform: translateY(-2px);
+    color: var(--themeColour);
     background: rgba(33, 72, 135, 0.08);
-    border-color: rgba(
-        33,
-        72,
-        135,
-        0.18
-    );
-    box-shadow: 0 14px 28px
-        rgba(15, 23, 42, 0.08);
+    transform: translateY(-1px);
 }
 
-footer p {
+footer .footerCopyright {
     color: var(--textColour);
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 0.92rem;
+    font-weight: var(--fontWeightMedium);
     margin: 0;
 }
 
+footer .footerNote {
+    margin: 0.75rem 0 0;
+    color: var(--textColourMid);
+    font-size: 0.82rem;
+    font-weight: var(--fontWeightRegular);
+}
+
 @media (max-width: 767px) {
+    footer {
+        padding-top: 1.35rem;
+        padding-bottom: calc(
+            1.35rem +
+                env(
+                    safe-area-inset-bottom,
+                    0px
+                )
+        );
+    }
+
+    footer .footerContactBand {
+        margin-bottom: 1.1rem;
+    }
+
     footer .footerContactLink {
+        min-height: 48px;
+        padding: 0.65rem 0.45rem;
+    }
+
+    footer .footerContactLinks {
+        display: grid;
         width: 100%;
+        grid-template-columns: repeat(
+            3,
+            minmax(0, 1fr)
+        );
+        border-radius: 10px;
+    }
+
+    footer .footerContactLink small {
+        display: none;
+    }
+
+    footer .footerContactLink span {
+        font-size: 0.9rem;
+    }
+
+    footer .footerCopyright {
+        font-size: 0.88rem;
+    }
+
+    footer .footerNote {
+        font-size: 0.78rem;
     }
 }

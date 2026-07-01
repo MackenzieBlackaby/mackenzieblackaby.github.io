@@ -32,9 +32,9 @@ NAV_ITEMS = [
         "Experience, education, and a downloadable resume",
     ),
     (
-        "/interests/",
-        "Interests",
-        "The topics, hobbies, and ideas behind the work",
+        "/experience/",
+        "Experience",
+        "Timeline of professional roles and consultancy work",
     ),
     (
         "/contact",
@@ -45,14 +45,14 @@ NAV_ITEMS = [
 
 CONTACT_LINKS = [
     (
-        "/contact",
-        "Email Me",
-        "Use the contact form",
-    ),
-    (
         "https://www.linkedin.com/in/mackenzie-blackaby-884b16217/",
         "LinkedIn",
         "Professional profile",
+    ),
+    (
+        "/contact",
+        "Email Me",
+        "Use the contact form",
     ),
     (
         "https://github.com/MackenzieBlackaby",
@@ -259,13 +259,14 @@ def render_footer(note: str) -> str:
             *contact_links,
             "                </div>",
             "            </div>",
-            "            <p>",
+            '            <p class="footerCopyright">',
             "                &copy; 2023 Mackenzie",
             "                Blackaby. All rights",
             "                reserved.",
             "            </p>",
-            "            <br />",
-            f"            {note}",
+            '            <p class="footerNote">',
+            f"                {note}",
+            "            </p>",
             "        </footer>",
         ]
     )

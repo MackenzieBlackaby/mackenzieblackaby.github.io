@@ -68,11 +68,6 @@
     gap: 36px;
     align-items: center;
     background:
-        radial-gradient(
-            circle at top right,
-            rgba(255, 255, 255, 0.2),
-            transparent 32%
-        ),
         linear-gradient(
             135deg,
             var(--project-accent) 0%,
@@ -84,34 +79,28 @@
 }
 
 .projectHero::after {
-    content: "";
-    position: absolute;
-    inset: auto -120px -120px auto;
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.07);
-    filter: blur(2px);
+    display: none;
 }
 
 .projectHeroTitle {
-    font-size: clamp(2.8rem, 6vw, 4.8rem);
-    line-height: 0.95;
+    font-size: 4rem;
+    font-weight: var(--fontWeightStrong);
+    line-height: 1.02;
     margin: 8px 0 18px;
 }
 
 .projectSectionEyebrow {
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
+    letter-spacing: 0;
     font-size: 0.8rem;
-    font-weight: 700;
+    font-weight: var(--fontWeightStrong);
     opacity: 0.84;
 }
 
 .projectHeroLead {
     font-size: 1.08rem;
-    line-height: 1.8;
+    line-height: 1.72;
     margin: 0 0 26px;
     max-width: 700px;
     color: var(--project-hero-muted);
@@ -130,7 +119,7 @@
 
 .projectMetaCard {
     padding: 14px 16px;
-    border-radius: 18px;
+    border-radius: 10px;
     background: rgba(
         255,
         255,
@@ -145,8 +134,8 @@
     display: block;
     margin-bottom: 6px;
     font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-weight: var(--fontWeightStrong);
+    letter-spacing: 0;
     text-transform: uppercase;
     color: rgba(
         255,
@@ -159,7 +148,7 @@
 .projectMetaValue {
     display: block;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: var(--fontWeightMedium);
     line-height: 1.4;
     color: #ffffff;
 }
@@ -177,8 +166,8 @@
     justify-content: center;
     min-height: 48px;
     padding: 0 18px;
-    border-radius: 999px;
-    font-weight: 600;
+    border-radius: 10px;
+    font-weight: var(--fontWeightMedium);
     transition:
         transform 0.25s ease,
         background-color 0.25s ease,
@@ -219,7 +208,7 @@
 
 .projectHeroMetaItem {
     padding: 8px 14px;
-    border-radius: 999px;
+    border-radius: 10px;
     background: rgba(
         255,
         255,
@@ -252,12 +241,12 @@
 
 .projectDetailCard h3 {
     margin: 0 0 10px;
-    font-size: 1.3rem;
+    font-size: 1.22rem;
 }
 
 .projectDetailCard p {
     margin: 0;
-    line-height: 1.7;
+    line-height: 1.65;
     color: var(--textColourMid);
 }
 
@@ -293,7 +282,7 @@
     max-height: 220px;
     height: auto;
     object-fit: contain;
-    border-radius: 28px;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0.82);
     padding: 18px;
     box-shadow: 0 18px 34px
@@ -305,22 +294,22 @@
 .projectHeroScreenshotCard img {
     width: 100%;
     max-height: none;
-    border-radius: 18px;
+    border-radius: 10px;
     padding: 0;
     background: rgba(8, 14, 24, 0.9);
-    box-shadow: 0 20px 38px
-        rgba(4, 10, 20, 0.34);
+    box-shadow: 0 14px 28px
+        rgba(4, 10, 20, 0.28);
 }
 
 .projectHeroMediaCard:hover img {
     transform: translateY(-3px);
-    box-shadow: 0 22px 40px
-        rgba(15, 23, 42, 0.2);
+    box-shadow: 0 16px 30px
+        rgba(15, 23, 42, 0.16);
 }
 
 .projectHeroInfoCard h2 {
     margin: 8px 0;
-    font-size: 2rem;
+    font-size: 1.65rem;
 }
 
 .projectHeroInfoCard p {
@@ -341,12 +330,12 @@
     display: inline-block;
     margin-bottom: 14px;
     padding: 6px 10px;
-    border-radius: 999px;
+    border-radius: 10px;
     background: var(--project-chip-bg);
     color: var(--project-chip-text);
     font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-weight: var(--fontWeightStrong);
+    letter-spacing: 0;
     text-transform: uppercase;
 }
 
@@ -416,7 +405,7 @@
             var(--project-accent-rgb),
             0.14
         );
-    box-shadow: 0 18px 34px
+    box-shadow: 0 12px 26px
         rgba(15, 23, 42, 0.08);
 }
 
@@ -439,7 +428,7 @@
 
 .projectScreenshotCard figcaption {
     padding: 16px 18px 18px;
-    line-height: 1.7;
+    line-height: 1.65;
     color: var(--textColourMid);
 }
 
@@ -448,8 +437,8 @@
     margin-bottom: 6px;
     color: var(--textColour);
     font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-weight: var(--fontWeightStrong);
+    letter-spacing: 0;
     text-transform: uppercase;
 }
 
@@ -462,11 +451,11 @@
     object-fit: contain;
     background: #09111d;
     padding: 0;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid
         rgba(15, 23, 42, 0.08);
-    box-shadow: 0 20px 42px
-        rgba(15, 23, 42, 0.14);
+    box-shadow: 0 14px 30px
+        rgba(15, 23, 42, 0.12);
 }
 
 .projectImageCallout {
@@ -482,18 +471,18 @@
 .projectImageCallout h2 {
     margin-top: 8px;
     max-width: 18ch;
-    line-height: 1.08;
-    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.12;
+    font-size: 2.2rem;
 }
 
 .projectImageCallout p {
-    line-height: 1.8;
+    line-height: 1.68;
 }
 
 .projectSectionNote,
 .projectLegalNote {
     color: var(--textColourMid);
-    line-height: 1.7;
+    line-height: 1.65;
 }
 
 .projectSectionNote {
@@ -508,6 +497,10 @@
     .projectHero {
         grid-template-columns: 1fr;
         padding: 32px 24px;
+    }
+
+    .projectHeroTitle {
+        font-size: 3rem;
     }
 
     .projectHeroVisual {
@@ -525,6 +518,18 @@
 }
 
 @media (max-width: 767px) {
+    .projectHeroTitle {
+        font-size: 2.35rem;
+    }
+
+    .projectHeroLead {
+        font-size: 1rem;
+    }
+
+    .projectImageCallout h2 {
+        font-size: 1.75rem;
+    }
+
     .projectHeroMediaCard {
         min-height: 220px;
         padding: 22px;

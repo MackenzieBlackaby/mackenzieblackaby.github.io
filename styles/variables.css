@@ -1,15 +1,20 @@
 :root {
-    --themeColour: #214887;
-    --themeColourMid: #14294c;
-    --themeColourSoft: #3f6cb5;
-    --mainFont: "Poppins", sans-serif;
-    --panelBorderRadius: 18px;
+    --themeColour: #1b4f7a;
+    --themeColourMid: #102a43;
+    --themeColourSoft: #3d73a6;
+    --mainFont:
+        "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+    --fontWeightRegular: 400;
+    --fontWeightMedium: 500;
+    --fontWeightStrong: 600;
+    --panelBorderRadius: 12px;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --backgroundColour: #0f141b;
-        --backgroundColourMid: #151c25;
+        --backgroundColour: #0d131b;
+        --backgroundColourMid: #141b24;
         --textColour: #ffffff;
         --textColourMid: #b9c0ca;
         --linkColor: #ffffff;
@@ -17,21 +22,21 @@
             255,
             255,
             255,
-            0.08
+            0.1
         );
-        --panelShadow: 0 20px 48px
-            rgba(0, 0, 0, 0.34);
+        --panelShadow: 0 16px 36px
+            rgba(0, 0, 0, 0.28);
         --pageGlowStrong: rgba(
             33,
             72,
             135,
-            0.22
+            0.14
         );
         --pageGlowSoft: rgba(
             33,
             72,
             135,
-            0.1
+            0.06
         );
         --inputBackground: rgba(
             255,
@@ -43,7 +48,7 @@
             15,
             20,
             27,
-            0.84
+            0.9
         );
         --headerMenuBackground: rgba(
             21,
@@ -80,36 +85,36 @@
 
 @media (prefers-color-scheme: light) {
     :root {
-        --backgroundColour: #edf2f8;
-        --backgroundColourMid: #f8fbff;
+        --backgroundColour: #f3f6fa;
+        --backgroundColourMid: #ffffff;
         --textColour: #111827;
         --textColourMid: #5d6778;
         --linkColor: #111827;
         --panelBorder: rgba(
-            33,
-            72,
-            135,
-            0.12
+            15,
+            23,
+            42,
+            0.1
         );
-        --panelShadow: 0 20px 48px
-            rgba(15, 23, 42, 0.08);
+        --panelShadow: 0 12px 30px
+            rgba(15, 23, 42, 0.07);
         --pageGlowStrong: rgba(
             33,
             72,
             135,
-            0.18
+            0.1
         );
         --pageGlowSoft: rgba(
             33,
             72,
             135,
-            0.08
+            0.04
         );
         --inputBackground: rgba(
             255,
             255,
             255,
-            0.82
+            0.9
         );
         --headerBackground: rgba(
             248,

@@ -12,12 +12,12 @@ html {
         radial-gradient(
             circle at top left,
             var(--pageGlowStrong),
-            transparent 28%
+            transparent 24%
         ),
         radial-gradient(
             circle at 85% 12%,
             var(--pageGlowSoft),
-            transparent 24%
+            transparent 20%
         ),
         linear-gradient(
             180deg,
@@ -31,16 +31,19 @@ html {
 
 body {
     font-family: var(--mainFont);
+    font-size: 1rem;
+    font-weight: var(--fontWeightRegular);
+    line-height: 1.6;
     background:
         radial-gradient(
             circle at top left,
             var(--pageGlowStrong),
-            transparent 28%
+            transparent 24%
         ),
         radial-gradient(
             circle at 85% 12%,
             var(--pageGlowSoft),
-            transparent 24%
+            transparent 20%
         ),
         linear-gradient(
             180deg,
@@ -53,6 +56,33 @@ body {
     color: var(--textColour);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: var(--fontWeightStrong);
+    letter-spacing: 0;
+}
+
+p,
+li {
+    font-weight: var(--fontWeightRegular);
+}
+
+strong,
+b {
+    font-weight: var(--fontWeightStrong);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
 }
 
 html,
@@ -103,7 +133,7 @@ img {
     left: 16px;
     z-index: 2000;
     padding: 0.85rem 1rem;
-    border-radius: 999px;
+    border-radius: 12px;
     background: var(--themeColour);
     color: #ffffff;
     box-shadow: 0 14px 30px
@@ -149,4 +179,10 @@ img {
 space {
     display: block;
     height: 5vh;
+}
+
+@media (max-width: 767px) {
+    html {
+        font-size: 15.5px;
+    }
 }

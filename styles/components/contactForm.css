@@ -22,7 +22,7 @@
 }
 
 .contactForm label {
-    font-weight: 600;
+    font-weight: var(--fontWeightMedium);
     color: var(--textColour);
 }
 
@@ -33,7 +33,7 @@
 .contactForm input,
 .contactForm textarea {
     padding: 14px 16px;
-    border-radius: 14px;
+    border-radius: 10px;
     border: 1px solid
         var(--panelBorder);
     background: var(--inputBackground);
@@ -79,7 +79,7 @@
 .contactFormStatus {
     min-height: 1.5rem;
     margin: 0;
-    font-weight: 600;
+    font-weight: var(--fontWeightMedium);
     color: var(--themeColourMid);
 }
 
@@ -97,8 +97,8 @@
     );
     color: #ffffff;
     border: none;
-    border-radius: 999px;
-    font-weight: bold;
+    border-radius: 10px;
+    font-weight: var(--fontWeightMedium);
     cursor: pointer;
     transition:
         transform 0.25s ease,
@@ -106,7 +106,7 @@
 }
 
 .contactForm button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 28px
-        rgba(20, 41, 76, 0.22);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px
+        rgba(20, 41, 76, 0.18);
 }
