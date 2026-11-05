@@ -209,7 +209,7 @@ a:focus-visible, button:focus-visible { outline-offset: 4px; }
 .projectDetailPage .projectScreenshotCard figcaption { flex: 1; }
 .projectDetailPage .projectScreenshotCard img { object-position: center; }
 .projectDetailPage .projectScreenshotCard a.projectImageZoom { display:block; position:relative; cursor: zoom-in; }
-.projectImageZoom::after { content: "Enlarge ↗"; position: absolute; right: 14px; bottom: 13px; background: rgba(9,20,33,.86); padding: 6px 10px; border-radius: 9px; font-size: .78rem; font-weight: 650; color: #fff; }
+.projectImageZoom::after { content: "View image"; position: absolute; right: 14px; bottom: 13px; background: rgba(9,20,33,.86); padding: 6px 10px; border-radius: 9px; font-size: .78rem; font-weight: 650; color: #fff; }
 .projectImageZoom img { transition: filter .2s ease; }
 .projectImageZoom:hover img { filter: brightness(1.1); }
 .projectDetailPage .projectHeroMediaCard a.projectImageZoom { width: 100%; }
@@ -217,7 +217,7 @@ a:focus-visible, button:focus-visible { outline-offset: 4px; }
 
 .processFlow { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; align-items: stretch; margin-top: 24px; }
 .processStage { min-width: 0; border-radius: 14px; border: 1px solid var(--panelBorder); padding: 19px; background: rgba(49,125,115,.045); position: relative; }
-.processStage:not(:last-child)::after { content: "→"; position: absolute; right: -13px; top: 50%; transform: translateY(-50%); z-index: 1; color: var(--designAccentText); background: var(--backgroundColourMid); border-radius: 30px; padding: 3px; }
+.processStage:not(:last-child)::after { content: ""; position: absolute; right: -11px; top: 50%; width: 12px; height: 2px; background: var(--panelBorder); transform: translateY(-50%); }
 .processStage .stepNo { color: var(--designAccentText); font-weight: 800; font-size: .75rem; }
 .processStage h3 { font-size: 1.08rem; margin: 10px 0 6px; }
 .processStage p { color: var(--textColourMid); margin: 0; font-size: .92rem; line-height: 1.55; }
@@ -266,7 +266,7 @@ a:focus-visible, button:focus-visible { outline-offset: 4px; }
     .projectDetailPage .projectHero { padding: 25px 19px; border-radius: 20px; }
     .projectDetailPage .projectScreenshotCard img { height: auto; max-height: 340px; }
     .processFlow { grid-template-columns: 1fr; }
-    .processStage:not(:last-child)::after { content: "↓"; top:auto; bottom:-17px; right:50%; transform:translateX(50%); }
+    .processStage:not(:last-child)::after { content: ""; width: 2px; height: 12px; top: auto; bottom: -11px; right: 50%; transform: translateX(50%); }
     .nav-links { gap: .5rem; }
     .nav-links a { padding-top: .82rem; padding-bottom: .82rem; }
 }
@@ -300,4 +300,116 @@ a:focus-visible, button:focus-visible { outline-offset: 4px; }
 @media (max-width: 767px) {
     .projectLightboxInner { padding: 9px; }
     .projectLightbox img { max-height: 76dvh; }
+}
+
+
+/* Revision: keep meaningful brand marks visible and make the layout less image-heavy. */
+.homeHero .heroLocation::before { display: none; }
+.homeHero .heroLocation { gap: 0; }
+.infoPanel .identityLogo {
+  width: 60px; height: 60px; padding: 7px; flex: 0 0 60px;
+  background: #fff; border: 1px solid rgba(15,23,42,.1);
+  border-radius: 12px; object-fit: contain;
+}
+.infoPanel .roleHomeLogo { width: 82px; height: 82px; flex-basis: 82px; padding: 10px; }
+.roleHomeHeader { display: flex; align-items: center; gap: 16px; margin: 0 0 18px; }
+.roleHomeHeader > div { min-width: 0; }
+.roleHomeHeader h3 { margin: 0 0 6px; line-height: 1.3; }
+.infoPanel .roleHomeHeader .infoDate { margin: 0; line-height: 1.5; }
+.infoPanel .roleHomeLocation { margin: 4px 0 0; font-size: .88rem; }
+.educationList li { display: flex; align-items: center; gap: 13px; }
+.educationList li > div { min-width: 0; }
+.educationList li strong { line-height: 1.36; }
+.educationList li span { display: block; margin-top: 4px; line-height: 1.45; }
+
+/* Consistent small brand tiles in place of large screenshot banners. */
+.workCardInline {
+  display: grid; grid-template-columns: 105px minmax(0, 1fr);
+  gap: 20px; align-items: start; padding: 22px;
+}
+.workCardInline .workCardMedia {
+  display: grid; place-items: center; width: 105px; height: 105px;
+  min-height: 0; padding: 10px; border-radius: 16px;
+}
+.workCardInline .workCardMediaLogo {
+  background: radial-gradient(circle at 70% 25%, rgba(69,153,176,.16), transparent 75%),
+    rgba(33,72,135,.07);
+}
+.workCardInline .workCardMediaLogo img {
+  display: block; width: 100%; max-width: 100%; max-height: 100%;
+  height: 100%; object-fit: contain; border-radius: 10px;
+}
+.workCardInline .workCardBody { min-width: 0; padding: 0; gap: 10px; }
+.workCardInline .workCardBody h2, .workCardInline .workCardBody h3 {
+  font-size: clamp(1.27rem, 2vw, 1.6rem); line-height: 1.18;
+}
+.workCardInline .workCardBody p { line-height: 1.55; }
+.workCardInline .workCardBody .eyebrow { margin: 0; font-size: .7rem; }
+.workCardInline .workCardBody .tagRow { gap: 5px; }
+.workCardInline .workCardBody .tagRow span { font-size: .72rem; }
+.workCardInline .workCardBody .workCardLink { padding-top: 4px; }
+.projectsShowcase { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.projectsShowcase .workCardInline { grid-column: auto; }
+.workCardInline .workCardMediaWebsite {
+  background: linear-gradient(135deg, #15436a, #102238 65%, #081523);
+  padding: 7px;
+}
+.workCardInline .siteMiniCard { width: 100%; height: 100%; padding: 9px; border-radius: 10px; }
+.workCardInline .siteMiniTop { gap: 4px; margin-bottom: 11px; }
+.workCardInline .siteMiniTop span { width: 5px; height: 5px; }
+.workCardInline .siteMiniHero { font-size: 1.55rem; }
+.workCardInline .siteMiniTag { font-size: .58rem; line-height: 1.25; }
+
+/* Small title logos on the individual project pages. */
+.projectTitleRow { display: flex; align-items: center; gap: 20px; margin: 7px 0 20px; }
+.projectTitleLogo {
+  width: 100px; height: 100px; padding: 10px; flex: 0 0 100px;
+  border-radius: 19px; background: #fff; object-fit: contain;
+  border: 1px solid rgba(255,255,255,.35);
+}
+.projectDetailPage .projectTitleRow .projectHeroTitle { margin: 0; }
+.projectDetailPage .projectHeroVisual .projectHeroInfoCard { padding: 24px; }
+
+/* Certifications are a single clear feature rather than repeated headings. */
+.certificationSingleSection { margin-top: clamp(36px, 6vw, 70px); }
+.credentialFeatureSingle { grid-template-columns: 130px minmax(0, 1fr); align-items: center; }
+.credentialFeatureSingle > img { width: 130px; height: 130px; }
+.credentialFeatureSingle h1 {
+  font-size: clamp(2rem, 4vw, 3.05rem);
+  line-height: 1.12; margin: 0 0 18px;
+}
+.credentialFeatureSingle h2 { font-size: clamp(1.35rem, 2.4vw, 1.8rem); margin: 0 0 12px; }
+.credentialFeatureSingle .tagRow { margin: 12px 0 22px; }
+
+/* Mobile browsers cannot reliably display a multi-page PDF in an object. */
+.mobileCvNotice { display: none; }
+.cvActions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 11px; }
+.cvViewerPolished .cvViewer { display: block; }
+@media (max-width: 950px) {
+  .projectsShowcase { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  .roleHomeHeader { align-items: flex-start; gap: 12px; }
+  .infoPanel .roleHomeLogo { width: 68px; height: 68px; flex-basis: 68px; }
+  .infoPanel .identityLogo { width: 50px; height: 50px; flex-basis: 50px; }
+  .infoPanel .roleHomeLogo { width: 68px; height: 68px; flex-basis: 68px; }
+  .workCardInline { grid-template-columns: 82px minmax(0, 1fr); gap: 13px; padding: 17px; }
+  .workCardInline .workCardMedia { width: 82px; height: 82px; padding: 7px; border-radius: 13px; }
+  .workCardInline .workCardBody { gap: 9px; }
+  .workCardInline .workCardBody h2, .workCardInline .workCardBody h3 { font-size: 1.28rem; }
+  .workCardInline .siteMiniCard { padding: 6px; }
+  .workCardInline .siteMiniTop { margin-bottom: 7px; }
+  .workCardInline .siteMiniHero { font-size: 1.22rem; }
+  .workCardInline .siteMiniTag { font-size: .48rem; }
+  .projectTitleRow { gap: 12px; margin-bottom: 16px; }
+  .projectTitleLogo { width: 66px; height: 66px; flex-basis: 66px; padding: 6px; border-radius: 13px; }
+  .projectDetailPage .projectTitleRow .projectHeroTitle { font-size: clamp(2rem, 7.8vw, 2.6rem); }
+  .credentialFeatureSingle { grid-template-columns: 1fr; gap: 16px; align-items: start; }
+  .credentialFeatureSingle > img { width: 80px; height: 80px; }
+  .cvIntro { gap: 18px; }
+  .cvActions { justify-content: stretch; width: 100%; flex-direction: column; }
+  .cvActions .actionLink { width: 100%; text-align: center; }
+  .desktopCvPreview { display: none; }
+  .mobileCvNotice { display: block; margin-top: 0; padding: 17px 20px; border-radius: 14px; background: var(--backgroundColourMid); border: 1px solid var(--panelBorder); }
+  .mobileCvNotice p { margin: 0; line-height: 1.6; color: var(--textColourMid); }
 }
