@@ -416,3 +416,107 @@ a:focus-visible, button:focus-visible { outline-offset: 4px; }
 
 /* Compact text-only confirmation badge, with no pictographic icon. */
 .stateSymbolText { width: 84px; height: 54px; border-radius: 13px; font-size: 1rem; font-weight: 750; letter-spacing: .025em; }
+
+
+/* Logo consistency: use the source marks without artificial white frames. */
+.infoPanel .identityLogo,
+.credentialIdentity .identityLogo {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+    object-fit: contain;
+}
+.infoPanel .identityLogo {
+    width: 60px;
+    height: 60px;
+    flex: 0 0 60px;
+}
+.infoPanel .roleHomeLogo {
+    width: 82px;
+    height: 82px;
+    flex-basis: 82px;
+}
+.credentialPanel { width: 100%; }
+.credentialIdentity {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.credentialIdentity .identityLogo {
+    display: block;
+    width: 60px;
+    height: 60px;
+    flex: 0 0 60px;
+}
+.credentialIdentity > div { min-width: 0; }
+.credentialPanel h3 { margin: 0 0 5px; }
+.credentialPanel p { margin: 0 0 10px; }
+.credentialPanel .infoLink { display: inline-block; }
+
+/* Consistent image-led project cards, featuring each project's original logo. */
+.projectsShowcase {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 19px;
+}
+.featuredGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.featuredGrid .workCardMediaLogo,
+.projectsShowcase .workCardMediaLogo {
+    min-height: 244px;
+    height: 244px;
+    padding: 27px;
+    background: radial-gradient(circle at 48% 28%, rgba(96, 149, 185, .25), transparent 65%),
+                linear-gradient(145deg, #dfeef8, #bbd6e9);
+}
+.featuredGrid .workCardMediaLogo img,
+.projectsShowcase .workCardMediaLogo img {
+    width: min(70%, 215px);
+    height: auto;
+    max-width: 100%;
+    max-height: 194px;
+    object-fit: contain;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+}
+.projectsShowcase .workCardMediaWebsite {
+    min-height: 244px;
+    height: 244px;
+    padding: 24px;
+}
+.projectsShowcase .workCardMediaWebsite .siteMiniCard {
+    width: min(100%, 310px);
+}
+@media (max-width: 1050px) {
+    .projectsShowcase { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+    .projectsShowcase, .featuredGrid { grid-template-columns: 1fr; }
+    .featuredGrid .workCardMediaLogo,
+    .projectsShowcase .workCardMediaLogo,
+    .projectsShowcase .workCardMediaWebsite {
+        height: 210px;
+        min-height: 210px;
+        padding: 19px;
+    }
+    .featuredGrid .workCardMediaLogo img,
+    .projectsShowcase .workCardMediaLogo img {
+        width: min(65%, 175px);
+        max-height: 167px;
+    }
+    .infoPanel .identityLogo,
+    .credentialIdentity .identityLogo {
+        width: 50px;
+        height: 50px;
+        flex-basis: 50px;
+    }
+    .infoPanel .roleHomeLogo {
+        width: 68px;
+        height: 68px;
+        flex-basis: 68px;
+    }
+    .credentialIdentity { align-items: flex-start; gap: 13px; }
+}
