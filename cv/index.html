@@ -155,51 +155,21 @@
                 </a>
                 </nav>
             </header>
-        <main
-            id="main-content"
-            class="mainPageContent"
-            tabindex="-1"
-        >
-            <section
-                class="contentCard fadeIn"
-            >
-                <h1>
-                    Curriculum Vitae
-                </h1>
-                <p>
-                    View my CV below or
-                    <a
-                        href="/Resources/Documents/cv.pdf"
-                    >
-                        download the PDF
-                        directly
-                    </a>
-                    if the embedded
-                    viewer is not ideal
-                    on your device.
-                </p>
-            </section>
-        <div class="cvViewerContainer">
-            <object
-                class="cvViewer"
-                data="/Resources/Documents/cv.pdf"
-                type="application/pdf"
-                title="Mackenzie Blackaby CV PDF"
-            >
-                <p>
-                    It seems your
-                    browser can't
-                    display this PDF.
-                    <a
-                        href="/Resources/Documents/cv.pdf"
-                    >
-                        Download it
-                        directly
-                    </a>
-                </p>
-            </object>
-        </div>
-        </main>
+        <main id="main-content" class="mainPageContent" tabindex="-1">
+  <section class="editorialShell cvIntro fadeIn instant" aria-labelledby="cv-heading">
+    <div class="pageIntro">
+      <p class="eyebrow">Experience &amp; education</p>
+      <h1 id="cv-heading">Curriculum vitae</h1>
+      <p>My academic background, practical software work and experience in technology consulting. View the document below or download a copy.</p>
+    </div>
+    <div class="cvCallout"><a class="actionLink actionLinkPrimary" href="/Resources/Documents/cv.pdf" download>Download CV (PDF) ↓</a></div>
+  </section>
+  <section class="cvViewerContainer cvViewerPolished fadeIn" aria-label="CV document preview">
+    <object class="cvViewer" data="/Resources/Documents/cv.pdf" type="application/pdf" title="Mackenzie Blackaby CV PDF">
+      <p>Your browser can't display the PDF here. <a class="inlineLink" href="/Resources/Documents/cv.pdf">Open the PDF directly ↗</a></p>
+    </object>
+  </section>
+</main>
         <footer>
             <div class="footerContactBand">
                 <p class="footerContactTitle">
