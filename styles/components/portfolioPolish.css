@@ -413,3 +413,6 @@ a:focus-visible, button:focus-visible { outline-offset: 4px; }
   .mobileCvNotice { display: block; margin-top: 0; padding: 17px 20px; border-radius: 14px; background: var(--backgroundColourMid); border: 1px solid var(--panelBorder); }
   .mobileCvNotice p { margin: 0; line-height: 1.6; color: var(--textColourMid); }
 }
+
+/* Compact text-only confirmation badge, with no pictographic icon. */
+.stateSymbolText { width: 84px; height: 54px; border-radius: 13px; font-size: 1rem; font-weight: 750; letter-spacing: .025em; }
