@@ -156,17 +156,23 @@
                 </nav>
             </header>
         <main id="main-content" class="mainPageContent" tabindex="-1">
-  <section class="editorialShell cvIntro fadeIn instant" aria-labelledby="cv-heading">
+  <section class="editorialShell cvIntro" aria-labelledby="cv-heading">
     <div class="pageIntro">
       <p class="eyebrow">Experience &amp; education</p>
       <h1 id="cv-heading">Curriculum vitae</h1>
-      <p>My academic background, practical software work and experience in technology consulting. View the document below or download a copy.</p>
+      <p>My academic background, technical projects and experience in technology consulting. Open the PDF to read it, or save a copy to your device.</p>
     </div>
-    <div class="cvCallout"><a class="actionLink actionLinkPrimary" href="/Resources/Documents/cv.pdf" download>Download CV (PDF) ↓</a></div>
+    <div class="cvCallout cvActions">
+      <a class="actionLink actionLinkPrimary" href="/Resources/Documents/cv.pdf" type="application/pdf">Open CV (PDF)</a>
+      <a class="actionLink" href="/Resources/Documents/cv.pdf" type="application/pdf" download="Mackenzie_Blackaby_CV.pdf">Download PDF</a>
+    </div>
   </section>
-  <section class="cvViewerContainer cvViewerPolished fadeIn" aria-label="CV document preview">
+  <section class="editorialShell mobileCvNotice" aria-label="Viewing the CV on a mobile device">
+    <p>The PDF opens in your phone's document viewer. Select <strong>Open CV (PDF)</strong> above to read it.</p>
+  </section>
+  <section class="cvViewerContainer cvViewerPolished desktopCvPreview" aria-label="Embedded CV document preview">
     <object class="cvViewer" data="/Resources/Documents/cv.pdf" type="application/pdf" title="Mackenzie Blackaby CV PDF">
-      <p>Your browser can't display the PDF here. <a class="inlineLink" href="/Resources/Documents/cv.pdf">Open the PDF directly ↗</a></p>
+      <p>Your browser cannot display the embedded PDF. <a class="inlineLink" href="/Resources/Documents/cv.pdf">Open the CV directly</a>.</p>
     </object>
   </section>
 </main>
