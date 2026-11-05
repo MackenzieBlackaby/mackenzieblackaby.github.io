@@ -7,7 +7,7 @@
   dialog.className = "projectLightbox";
   dialog.setAttribute("aria-label", "Enlarged project screenshot");
   dialog.innerHTML = `<div class="projectLightboxInner">
-    <button class="projectLightboxClose" type="button" aria-label="Close image viewer">Close ✕</button>
+    <button class="projectLightboxClose" type="button" aria-label="Close image viewer">Close</button>
     <img alt="" />
     <p class="projectLightboxCaption"></p>
   </div>`;
